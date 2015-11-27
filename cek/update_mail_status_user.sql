@@ -1,0 +1,1 @@
+exec fnd_preference.put('CRP QA 02','WF','MAILTYPE','MAILHTML');

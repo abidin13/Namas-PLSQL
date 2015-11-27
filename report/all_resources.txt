@@ -1,0 +1,45 @@
+select hou.NAME ou,
+                crd.RESOURCES,
+                (select operating_unit from 
+                apps.ORG_ORGANIZATION_DEFINITIONS
+                where ORGANIZATION_ID = crd.organization_id ) ORG,
+               crd.IDEAL_CAPACITY * 3 * 365 kapasitas ,
+               decode(crmb.RESOURCE_CLASS,
+                      'BBLM','Botol Belah',
+                      'CGM','CAP SHIELD',
+                      'CRS','Cruiser',
+                      'CUP','CUP',
+                      'DRYM','Dryer',
+                      'GLM','GALLON',
+                      'GRM','Granulator',
+                      'HDM','Blow HDPE',
+                      'MIXM','Mixer',
+                      'PET','PET',
+                      'PLM','Pellet',
+                      'PLTM','Pelletizer',
+                      'PRM','PREFORM',
+                      'SCM','SCREW CAP',
+                      'SLPM','Slep',
+                      'SSM','SSP Buhler',
+                      'TCM','CAP SHIELD',
+                      'TLO','Toll Out',
+                      'VIBM','Vibrator',
+                      'WSM','Washing') as MESIN 
+        from 
+            CR_RSRC_DTL crd, 
+            cr_rsrc_mst_b crmb,
+            hr_all_organization_units hou
+        where crmb.RESOURCES not in 
+        (
+        SELECT RESOURCES
+                                                    FROM CR_RSRC_MST_B
+                                                    WHERE RESOURCES like 'MLD%'
+                                                        OR RESOURCES LIKE 'PUNCH%'
+                                                        OR RESOURCES LIKE 'C-%'
+                                                        OR RESOURCES LIKE 'C2%'
+                                                        OR RESOURCES LIKE 'C3%'
+                                                        )
+        
+        and crd.INACTIVE_IND = 0
+        and hou.ORGANIZATION_ID = crd.ORGANIZATION_ID
+        and crmb.RESOURCES = crd.RESOURCES
