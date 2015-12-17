@@ -91,14 +91,14 @@ SELECT   a.batch_no, a.recipe_validity_rule_id, a.formula_id, a.routing_id,
      AND (   g.transaction_source_type_id = 5
           OR g.transaction_source_type_id IS NULL
          )
-     --AND a.organization_id = :io
-     AND a.batch_status NOT IN ('-1')
+     AND a.organization_id = :io
+     AND a.batch_status = 4
      AND (   TRUNC (plan_start_date) BETWEEN TO_DATE (:from_date,
                                                       'RRRR/MM/DD HH24:MI:SS'
                                                      )
                                          AND TO_DATE (:TO_DATE,
                                                       'RRRR/MM/DD HH24:MI:SS'
                                                      )
-          OR a.batch_no BETWEEN :from_batch_no AND :to_batch_no
+          --OR a.batch_no BETWEEN :from_batch_no AND :to_batch_no
          )
 ORDER BY a.batch_no, b.line_type, b.line_no
