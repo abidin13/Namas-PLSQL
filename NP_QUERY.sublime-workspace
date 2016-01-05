@@ -67,16 +67,32 @@
 			"file": "report/GET_ACTUAL_QTY_BATCH_PEX.sql",
 			"settings":
 			{
-				"buffer_size": 4349,
+				"buffer_size": 4412,
 				"line_ending": "Windows",
 				"name": "select a.ACTUAL_QTY,"
 			}
 		},
 		{
-			"file": "report/all_formula.sql",
+			"file": "report/order_vs_kapasitas_vs_ttlproduksi.txt",
 			"settings":
 			{
-				"buffer_size": 1226,
+				"buffer_size": 2201,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "report/qty_order_per_bulan_ver2.sql",
+			"settings":
+			{
+				"buffer_size": 1620,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cek/cek_supply_item.sql",
+			"settings":
+			{
+				"buffer_size": 443,
 				"line_ending": "Windows"
 			}
 		},
@@ -87,14 +103,6 @@
 				"buffer_size": 266,
 				"line_ending": "Windows",
 				"name": "select aa. *,"
-			}
-		},
-		{
-			"file": "report/SUMSO_KAPASITAS_HARI_TOTALKAPASITAS.sql",
-			"settings":
-			{
-				"buffer_size": 1937,
-				"line_ending": "Windows"
 			}
 		},
 		{
@@ -149,7 +157,7 @@
 			"file": "report/query sample all.sql",
 			"settings":
 			{
-				"buffer_size": 879,
+				"buffer_size": 1065,
 				"line_ending": "Windows"
 			}
 		},
@@ -193,20 +201,20 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 398.0,
-		"last_filter": "install",
+		"height": 41.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
 			],
 			[
 				"ins",
-				"Package Control: Install Package"
-			],
-			[
-				"insta",
 				"Package Control: Install Package"
 			],
 			[
@@ -254,6 +262,12 @@
 	],
 	"file_history":
 	[
+		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/all_formula.sql",
+		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/SUMSO_KAPASITAS_HARI_TOTALKAPASITAS.sql",
+		"/D/xampp/htdocs/emeeting/emeeting.sql",
+		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/quantity_so_ver2.sql",
+		"/D/xampp/htdocs/loginoop/vendor/cartalyst/sentry/schema/mysql.sql",
+		"/D/xampp/htdocs/loginoop/composer.json",
 		"/Z/xampp/htdocs/produksi/class/lib.class.php",
 		"/Z/xampp/htdocs/fire_system/config/konek.php",
 		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/order_vs_kapasitas_vs_ttlproduksi_ver4.sql",
@@ -267,8 +281,6 @@
 		"/C/Users/febriyant.abidin/Desktop/wfretry.sql",
 		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/YNP_GET_KAPASITAS_VER2.sql",
 		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/YNP_GET_KAPASITAS.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/SUMSO_KAPASITAS_HARI_TOTALKAPASITAS.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/quantity_so_ver2.sql",
 		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/quantity_so_no_pivot.sql",
 		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/qty_order_per_bulan_ver2.sql",
 		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/qty_order_per_bulan.sql",
@@ -332,6 +344,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"item",
 			"placeholder",
 			"signin",
 			"theme"
@@ -352,7 +365,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -361,15 +374,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4349,
+						"buffer_size": 4412,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								4349
+								2998,
+								2998
 							]
 						],
 						"settings":
@@ -380,36 +393,6 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 904.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "report/all_formula.sql",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1226,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1226,
-								1226
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -417,7 +400,96 @@
 					"type": "text"
 				},
 				{
+					"buffer": 1,
+					"file": "report/order_vs_kapasitas_vs_ttlproduksi.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2201,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								676,
+								676
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
 					"buffer": 2,
+					"file": "report/qty_order_per_bulan_ver2.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1620,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1468,
+								1468
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.tmLanguage",
+							"tab_size": 8,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "cek/cek_supply_item.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 443,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								443,
+								443
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/SQL/SQL.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "report/user_and_plant_responsibility.sql",
 					"semi_transient": false,
 					"settings":
@@ -442,41 +514,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "report/SUMSO_KAPASITAS_HARI_TOTALKAPASITAS.sql",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1937,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1284,
-								1284
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SQL/SQL.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "cek/get_user_n_password.sql",
 					"semi_transient": false,
 					"settings":
@@ -488,7 +530,7 @@
 						"selection":
 						[
 							[
-								0,
+								975,
 								975
 							]
 						],
@@ -502,11 +544,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "/C/Users/febriyant.abidin/Desktop/proyek2.sql",
 					"semi_transient": false,
 					"settings":
@@ -524,17 +566,19 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/SQL/SQL.tmLanguage"
+							"syntax": "Packages/SQL/SQL.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "report/get_account.sql",
 					"semi_transient": false,
 					"settings":
@@ -558,11 +602,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "report/YNP_GET_KAPASITAS_VER2.sql",
 					"semi_transient": false,
 					"settings":
@@ -588,11 +632,11 @@
 						"translation.y": 225.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "cek/cek_receiving.sql",
 					"semi_transient": false,
 					"settings":
@@ -604,7 +648,7 @@
 						"selection":
 						[
 							[
-								0,
+								125,
 								125
 							]
 						],
@@ -616,11 +660,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "cek/cek_receive_and_po.sql",
 					"semi_transient": false,
 					"settings":
@@ -632,7 +676,7 @@
 						"selection":
 						[
 							[
-								0,
+								475,
 								475
 							]
 						],
@@ -644,24 +688,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
 					"file": "report/query sample all.sql",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 879,
+						"buffer_size": 1065,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								839,
-								0
+								491,
+								491
 							]
 						],
 						"settings":
@@ -672,11 +716,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "report/order_vs_kapasitas_vs_ttlproduksi_ver4.sql",
 					"semi_transient": false,
 					"settings":
@@ -702,11 +746,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 13,
 					"file": "cek/update_mail_status_user.sql",
 					"semi_transient": false,
 					"settings":
@@ -730,11 +774,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 14,
 					"file": "report/contoh_cashflow.sql",
 					"semi_transient": false,
 					"settings":
@@ -756,15 +800,15 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 1845.0,
+						"translation.x": 0.0,
+						"translation.y": 1234.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 15,
 					"file": "cek/cek_period_inventory.sql",
 					"semi_transient": false,
 					"settings":
@@ -788,7 +832,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
+					"stack_index": 15,
 					"type": "text"
 				}
 			]
@@ -843,20 +887,44 @@
 		"selected_items":
 		[
 			[
-				"get",
-				"cek\\get_user_n_password.sql"
+				"",
+				"report\\qty_order_per_bulan_ver2.sql"
 			],
 			[
-				"",
-				"report\\contoh_cashflow.sql"
+				"re",
+				"cek\\cek_receiving.sql"
+			],
+			[
+				"sa",
+				"report\\query sample all.sql"
+			],
+			[
+				"get",
+				"report\\GET_ACTUAL_QTY_BATCH_PEX.sql"
+			],
+			[
+				"sam",
+				"report\\query sample all.sql"
+			],
+			[
+				"cekre",
+				"cek\\cek_receiving.sql"
+			],
+			[
+				"bre",
+				"report\\qty_order_per_bulan_ver2.sql"
+			],
+			[
+				"vs",
+				"report\\order_vs_kapasitas_vs_ttlproduksi.txt"
+			],
+			[
+				"so",
+				"report\\quantity_so_ver2.sql"
 			],
 			[
 				"up",
 				"cek\\update_mail_status_user.sql"
-			],
-			[
-				"vs",
-				"report\\order_vs_kapasitas_vs_ttlproduksi_ver4.sql"
 			],
 			[
 				"quer",
@@ -900,8 +968,12 @@
 		"selected_items":
 		[
 			[
-				"",
+				"help",
 				"D:\\xampp\\htdocs\\helpdesk\\helpdesk.sublime-project"
+			],
+			[
+				"",
+				"D:\\xampp\\htdocs\\simpleframework\\simpleframework.sublime-project"
 			]
 		],
 		"width": 380.0

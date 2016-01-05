@@ -1,4 +1,5 @@
 select
+aaa.NAME,
 c.PADDED_CONCATENATED_SEGMENTS as item_code,
 a.SAMPLE_DESC,
 a.SAMPLE_NO,
@@ -26,16 +27,15 @@ from gmd_samples a,
 gme_batch_header b,
 mtl_system_items_kfv c,
 gmd_results d,
-APPS.GMD_QC_TESTS_VL e
+APPS.GMD_QC_TESTS_VL e,
+hr_all_organization_units aaa
 where 
-a.organization_id = 231
-and a.BATCH_ID = b.BATCH_ID
+--a.organization_id = 231
+a.BATCH_ID = b.BATCH_ID
 and a.INVENTORY_ITEM_ID = c.INVENTORY_ITEM_ID
 and a.ORGANIZATION_ID = c.ORGANIZATION_ID
 and a.SAMPLE_ID = d.SAMPLE_ID
 and e.TEST_ID = d.TEST_ID
-
-
-GMD_SPECIFICATIONS_VL
-
-mtl_parameters
+and a.ORGANIZATION_ID = aaa.ORGANIZATION_ID
+and a.DATE_DRAWN BETWEEN TRUNC(TO_DATE(:TGL1, 'RRRR/MM/DD HH24:MI:SS')) AND TRUNC(TO_DATE(:TGL2, 'RRRR/MM/DD HH24:MI:SS')+1)
+order by name asc

@@ -55,10 +55,11 @@ SELECT   a.batch_no, a.recipe_validity_rule_id, a.formula_id, a.routing_id,
                  1, 'Product',
                  2, 'By-Product'
                 ) AS TYPE,
+         f.SUBINVENTORY_CODE,
          b.line_no AS NO, b.plan_qty AS planned_qty,
          b.wip_plan_qty AS wip_plan_qty, b.actual_qty AS actual_qty,
          g.lot_number,
-                      --g.transaction_quantity AS tq,
+                      g.transaction_quantity,
                       --g.primary_quantity as pq,
                       b.dtl_um AS uom,
          DECODE (a.organization_id,
@@ -101,4 +102,5 @@ SELECT   a.batch_no, a.recipe_validity_rule_id, a.formula_id, a.routing_id,
                                                      )
           --OR a.batch_no BETWEEN :from_batch_no AND :to_batch_no
          )
+     AND substr(d.FORMULA_NO, 5,3)=:ITEM
 ORDER BY a.batch_no, b.line_type, b.line_no
