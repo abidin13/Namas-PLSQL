@@ -8,6 +8,7 @@ SELECT b.formula_no,
        b.total_input_qty, b.total_output_qty, b.yield_uom,
        b.owner_organization_id, b.master_formula_id, b.auto_product_calc,
        misk.CONCATENATED_SEGMENTS,
+       msb.description,
        DECODE (fmtl.line_type,'1','Product','2','By_product','-1','Ingredients')as line_type,    
        fmtl.COST_ALLOC,
        fmtl.QTY,
@@ -19,12 +20,15 @@ SELECT b.formula_no,
   FROM fm_form_mst_b b, 
        fm_form_mst_tl t, 
        FM_MATL_DTL fmtl,
+       mtl_system_items_b msb,
        mtl_system_items_kfv misk,
        hr_all_organization_units hou,
        mtl_parameters mp
        
   where misk.INVENTORY_ITEM_ID = fmtl.INVENTORY_ITEM_ID
   and b.FORMULA_ID = t.FORMULA_ID
+  and msb.inventory_item_id = misk.inventory_item_id
+  and msb.organization_id = b.OWNER_ORGANIZATION_ID
   and fmtl.FORMULA_ID = b.FORMULA_ID
   and b.OWNER_ORGANIZATION_ID = misk.ORGANIZATION_ID
   and b.OWNER_ORGANIZATION_ID = hou.ORGANIZATION_ID
