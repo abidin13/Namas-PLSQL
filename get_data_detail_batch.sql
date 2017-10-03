@@ -11,14 +11,14 @@ and bh.organization_id = mp.organization_id;
 
 select batch_id, batch_no, bh.organization_id, organization_code, batch_type, batch_status, recipe_validity_rule_id, formula_id, routing_id, to_char (plan_start_date, 'DD-MON-YYYY HH24:MI:SS') as plan_start_date, to_char(actual_start_date, 'DD-MON-YYYY HH24:MI:SS') as actual_start_date, to_char (plan_cmplt_date, 'DD-MON-YYYY HH24:MI:SS') as plan_cmplt_date, to_char (actual_cmplt_date, 'DD-MON-YYYY HH24:MI:SS') as actual_cmplt_date, to_char (due_date, 'DD-MON-YYYY HH24:MI:SS') as due_date, to_char (batch_close_date, 'DD-MON-YYYY HH24:MI:SS') as batch_close_date, actual_cost_ind, update_inventory_ind, to_char (bh.last_update_date, 'DD-MON-YYYY HH24:MI:SS') as last_update_date, bh.last_updated_by, to_char (bh.creation_date, 'DD-MON-YYYY HH24:MI:SS') as creation_date, bh.created_by, bh.last_update_login, bh.delete_mark, text_code, parentline_id, fpo_id, automatic_step_calculation, gl_posted_ind, firmed_ind, finite_scheduled_ind, order_priority, migrated_batch_ind, enforce_step_dependency, terminated_ind, enhanced_pi_ind, laboratory_ind, move_order_header_id, terminate_reason_id
 FROM gme_batch_header bh, mtl_parameters p
-WHERE batch_id in (XXXXXX)
+WHERE batch_id in (:batch_id)
 AND bh.organization_id = p.organization_id;
 
 /*Query 2 - Material Details*/
 
 select md.batch_id, batch_no, line_type, line_no, material_detail_id, md.inventory_item_id, segment1 as item_number, plan_qty, actual_qty, wip_plan_qty, dtl_um, release_type, md.phantom_id, md.subinventory, md.locator_id, material_requirement_date, md.move_order_line_id, original_qty, original_primary_qty, cost_alloc, scrap_factor, scale_type, contribute_yield_ind, contribute_step_qty_ind, to_char (md.creation_date, 'DD-MON-YYYY HH24:MI:SS') as creation_date, to_char (md.last_update_date, 'DD-MON-YYYY HH24:MI:SS') as last_update_date, formulaline_id
 FROM gme_material_details md, mtl_system_items_b i, gme_batch_header bh
-WHERE md.batch_id IN (XXXXXX)
+WHERE md.batch_id IN (:batch_id)
 AND md.batch_id = bh.batch_id
 AND md.inventory_item_id = i.inventory_item_id
 AND bh.organization_id = i.organization_id
@@ -42,7 +42,7 @@ FROM mtl_material_transactions t, gme_material_details d, gme_batch_header h,
 mtl_transaction_lot_numbers lt, mtl_lot_numbers lot, mtl_system_items_b i,
 mtl_transaction_types ty, mtl_parameters pa
 WHERE t.transaction_source_type_id = 5
-AND h.batch_id in (XXXXXX)
+AND h.batch_id in (:batch_id)
 AND t.transaction_source_id = h.batch_id
 AND t.organization_id = h.organization_id
 AND d.batch_id = h.batch_id
@@ -70,7 +70,7 @@ to_char(r.last_update_date, 'DD-MON-YYYY HH24:MI:SS') as last_update_date, NULL
 FROM mtl_reservations r, gme_material_details d, gme_batch_header h, mtl_system_items_b i,
 mtl_parameters pa
 WHERE demand_source_type_id = 5
-AND h.batch_id in (XXXXXX)
+AND h.batch_id in (:batch_id)
 AND demand_source_header_id = h.batch_id
 AND r.organization_id = h.organization_id
 AND d.batch_id = h.batch_id
@@ -88,7 +88,7 @@ to_char(p.creation_date, 'DD-MON-YYYY HH24:MI:SS') as creation_date,
 to_char(p.last_update_date, 'DD-MON-YYYY HH24:MI:SS') as last_update_date, NULL
 FROM gme_pending_product_lots p, gme_material_details d, gme_batch_header h,
 mtl_system_items_b i, mtl_parameters pa
-WHERE h.batch_id in (XXXXXX)
+WHERE h.batch_id in (:batch_id)
 AND p.batch_id = h.batch_id
 AND d.batch_id = h.batch_id
 AND d.material_detail_id = p.material_detail_id
@@ -114,7 +114,7 @@ FROM mtl_material_transactions_temp t, gme_material_details d, gme_batch_header 
 mtl_transaction_lots_temp lt, mtl_system_items_b i, mtl_transaction_types ty,
 mtl_parameters pa --mtl_lot_numbers lot
 WHERE t.transaction_source_type_id = 5
-AND h.batch_id in (XXXXXX)
+AND h.batch_id in (:batch_id)
 AND transaction_source_id = h.batch_id
 AND t.organization_id = h.organization_id
 AND d.batch_id = h.batch_id
@@ -143,7 +143,7 @@ FROM mtl_transactions_interface t, gme_material_details d, gme_batch_header h,
 mtl_transaction_lots_interface lt, mtl_system_items_b i, mtl_transaction_types ty,
 mtl_parameters pa --mtl_lot_numbers lot
 WHERE t.transaction_source_type_id = 5
-AND h.batch_id in (XXXXXX)
+AND h.batch_id in (:batch_id)
 AND transaction_source_id = h.batch_id
 AND t.organization_id = h.organization_id
 AND d.batch_id = h.batch_id
@@ -162,7 +162,7 @@ ORDER BY batch_id, table_name, line_type, material_detail_id, trans_or_rsrv_id;
 
 SELECT *
 FROM gme_transaction_pairs
-WHERE batch_id in (XXXXXX);
+WHERE batch_id in (:batch_id);
 
  
 
@@ -170,7 +170,7 @@ WHERE batch_id in (XXXXXX);
 
 SELECT batch_id, batchstep_no, batchstep_id, step_status, gbt.oprn_id, oprn_no, oprn_vers, plan_step_qty, actual_step_qty, step_qty_um, to_char(plan_start_date, 'DD-MON-YYYY HH24:MI:SS') as plan_start_date, to_char(actual_start_date, 'DD-MON-YYYY HH24:MI:SS') as actual_start_date, to_char(plan_cmplt_date, 'DD-MON-YYYY HH24:MI:SS') as plan_cmplt_date, to_char(actual_cmplt_date, 'DD-MON-YYYY HH24:MI:SS') as actual_cmplt_date, steprelease_type, max_step_capacity, max_step_capacity_um, plan_charges, actual_charges, quality_status, routingstep_id
 FROM gme_batch_steps gbt, gmd_operations_b gob
-WHERE batch_id in (XXXXXX)
+WHERE batch_id in (:batch_id)
 And gbt.oprn_id = gob.oprn_id
 ORDER BY batch_id, batchstep_no;
 
@@ -180,7 +180,7 @@ ORDER BY batch_id, batchstep_no;
 
 SELECT batch_id, batchstep_id, batchstep_activity_id, activity, offset_interval, to_char(plan_start_date, 'DD-MON-YYYY HH24:MI:SS') as plan_start_date, to_char(actual_start_date, 'DD-MON-YYYY HH24:MI:SS') as actual_start_date, to_char(plan_cmplt_date, 'DD-MON-YYYY HH24:MI:SS') as plan_cmplt_date, to_char(actual_cmplt_date, 'DD-MON-YYYY HH24:MI:SS') as actual_cmplt_date, plan_activity_factor, actual_activity_factor, oprn_line_id
 FROM gme_batch_step_activities
-WHERE batch_id in (XXXXXX)
+WHERE batch_id in (:batch_id)
 ORDER BY batch_id, batchstep_id, batchstep_activity_id;
 
  
@@ -189,7 +189,7 @@ ORDER BY batch_id, batchstep_id, batchstep_activity_id;
 
 SELECT batch_id, batchstep_id, batchstep_activity_id, batchstep_resource_id, resources, scale_type, plan_rsrc_count, actual_rsrc_count, plan_rsrc_usage, actual_rsrc_usage, usage_um, plan_rsrc_qty, actual_rsrc_qty, resource_qty_um, to_char(plan_start_date, 'DD-MON-YYYY HH24:MI:SS') as plan_start_date, to_char(actual_start_date, 'DD-MON-YYYY HH24:MI:SS') as actual_start_date, to_char(plan_cmplt_date, 'DD-MON-YYYY HH24:MI:SS') as plan_cmplt_date, to_char(actual_cmplt_date, 'DD-MON-YYYY HH24:MI:SS') as actual_cmplt_date, offset_interval, min_capacity, max_capacity, capacity_um, calculate_charges, prim_rsrc_ind
 FROM gme_batch_step_resources
-WHERE batch_id in (XXXXXX)
+WHERE batch_id in (:batch_id)
 ORDER BY batch_id, batchstep_id, batchstep_activity_id, batchstep_resource_id;
 
  
@@ -198,7 +198,7 @@ ORDER BY batch_id, batchstep_id, batchstep_activity_id, batchstep_resource_id;
 
 SELECT doc_id as batch_id, line_id as batchstep_resource_id, poc_trans_id, resources, resource_usage, trans_qty_um, to_char(trans_date, 'DD-MON-YYYY HH24:MI:SS') as trans_date, to_char(start_date, 'DD-MON-YYYY HH24:MI:SS') as start_date, to_char(end_date, 'DD-MON-YYYY HH24:MI:SS') as end_date, completed_ind, posted_ind, overrided_protected_ind, reverse_id, delete_mark
 FROM gme_resource_txns
-WHERE doc_id in (XXXXXX)
+WHERE doc_id in (:batch_id)
 ORDER BY doc_id, line_id, poc_trans_id;
 
  

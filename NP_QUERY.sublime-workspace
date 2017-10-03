@@ -4,60 +4,68 @@
 		"selected_items":
 		[
 			[
+				"mss",
+				"mssql_execute"
+			],
+			[
+				"ba",
+				"batch_id"
+			],
+			[
 				"operat",
 				"operators"
 			],
 			[
 				"if",
-				"if	if …"
+				"if\tif …"
 			],
 			[
 				"ne",
-				"new 	Language Construct"
+				"new \tLanguage Construct"
 			],
 			[
 				"di",
-				"die()	Language Construct"
+				"die()\tLanguage Construct"
 			],
 			[
 				"stat",
-				"static 	Language Construct"
+				"static \tLanguage Construct"
 			],
 			[
 				"var",
-				"var_dump()	standard Function"
+				"var_dump()\tstandard Function"
 			],
 			[
 				"print",
-				"print_r()	standard Function"
+				"print_r()\tstandard Function"
 			],
 			[
 				"for",
-				"foreach	foreach …"
+				"foreach\tforeach …"
 			],
 			[
 				"html",
-				"htmlentities()	standard Function"
+				"htmlentities()\tstandard Function"
 			],
 			[
 				"spl",
-				"spl_autoload_register()	SPL Function"
+				"spl_autoload_register()\tSPL Function"
 			],
 			[
 				"requi",
-				"require_once	Language Construct"
+				"require_once\tLanguage Construct"
 			],
 			[
 				"requ",
-				"require_once	Language Construct"
+				"require_once\tLanguage Construct"
 			],
 			[
 				"ses",
-				"session_start()	session Function"
+				"session_start()\tsession Function"
 			],
 			[
 				"inc",
-				"include_once	Language Construct"
+				"include_once\tLanguage Construct"
 			]
 		]
 	},
@@ -67,15 +75,33 @@
 			"file": "report/GET_ACTUAL_QTY_BATCH_PEX.sql",
 			"settings":
 			{
-				"buffer_size": 4412,
+				"buffer_size": 4646,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "cek/get_user_n_password.sql",
+			"file": "RPS003.sql",
 			"settings":
 			{
-				"buffer_size": 975,
+				"buffer_size": 4829,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cek/cek_invoice.sql",
+			"settings":
+			{
+				"buffer_size": 245,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "cek/cek_receive_and_po.sql",
+			"settings":
+			{
+				"buffer_size": 475,
 				"line_ending": "Windows"
 			}
 		},
@@ -83,31 +109,42 @@
 			"file": "report/get_total_qty_bulanan_produksi.sql",
 			"settings":
 			{
-				"buffer_size": 4714,
+				"buffer_size": 4644,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "inventory_item_id.sql",
+			"file": "cek/get_user_n_password.sql",
 			"settings":
 			{
-				"buffer_size": 200,
+				"buffer_size": 1494,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "cek/update_mail_status_user.sql",
+			"contents": "Package Control Messages\n========================\n\nColor Highlighter\n-----------------\n\n  \n  Color Highlighter v8.0 is released!\n  \n  For more info about the plugin visit https://github.com/Monnoroch/ColorHighlighter.\n  \n  Color Highlighter was developed for many years and features were added without consideration.\n  As a result it has plenty of bugs and code is completely unmaintainable.\n  Because of it, I've decided to rewrite the plugin from scratch using all the good programming practices I learned\n  over the years.\n  \n  This is the first release of the new version and it might have some subtle bugs, especially on Windows and Mac, as I\n  don't have machines with these systems. If you find any bugs, please file them in\n  the bug tracker here: https://github.com/Monnoroch/ColorHighlighter/issues. I always appreciate your help and try to fix\n  problems as soon as possible.\n  \n  The plugin is being developed by me alone in my spare time, so if you want to encourage me to build it\n  better and faster, donations as always welcome.\n  \n  Thank you guys for your support, every little bit helps!\n",
 			"settings":
 			{
-				"buffer_size": 64,
+				"buffer_size": 1107,
+				"line_ending": "Windows",
+				"name": "Package Control Messages",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"file": "report/YNP_GET_KAPASITAS.sql",
+			"settings":
+			{
+				"buffer_size": 2313,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "cek/cek_receiving.sql",
+			"file": "report/all_formula.sql",
 			"settings":
 			{
-				"buffer_size": 125,
+				"buffer_size": 1385,
 				"line_ending": "Windows"
 			}
 		},
@@ -127,17 +164,65 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 400.0,
-		"last_filter": "",
+		"height": 354.0,
+		"last_filter": "LiveReload",
 		"selected_items":
 		[
+			[
+				"LiveReload",
+				"Snippet: Insert livereload.js script"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
 			],
 			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"new",
+				"ANF: New File"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
 				"ins",
-				"File: Open In Browser - Testing Server"
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ST:",
+				"ST: Select Connection"
+			],
+			[
+				"exec",
+				"ST: Execute"
+			],
+			[
+				"remp",
+				"Package Control: Remove Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Mat",
+				"Material Theme: Activate theme"
+			],
+			[
+				"set",
+				"Set Syntax: SQL"
+			],
+			[
+				"",
+				"ANF: New File"
 			],
 			[
 				"bs3-nav",
@@ -145,10 +230,6 @@
 			],
 			[
 				"insta",
-				"Package Control: Install Package"
-			],
-			[
-				"inst",
 				"Package Control: Install Package"
 			],
 			[
@@ -168,23 +249,15 @@
 				"Project: Refresh Folders"
 			],
 			[
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
 				"in",
 				"Package Control: Install Package"
-			],
-			[
-				"",
-				"Colorsublime: Browse Themes"
 			],
 			[
 				"th",
 				"Colorsublime: Install Theme"
 			]
 		],
-		"width": 424.0
+		"width": 592.0
 	},
 	"console":
 	{
@@ -209,143 +282,145 @@
 	"expanded_folders":
 	[
 		"/D/EBS_ORACLE_NSP/query",
+		"/D/EBS_ORACLE_NSP/query/auto_invoices_tidak_ada_diInterfaces",
+		"/D/EBS_ORACLE_NSP/query/cli",
 		"/D/EBS_ORACLE_NSP/query/debug",
 		"/D/EBS_ORACLE_NSP/query/report"
 	],
 	"file_history":
 	[
-		"/C/Users/febriyant.abidin/Desktop/qty_reservable/p16729011_R12.INV.B_R12_GENERIC/16729011/README.txt",
-		"/C/Users/febriyant.abidin/Desktop/qty_reservable/p16729011_R12.INV.B_R12_GENERIC/16729011/u16729011.drv",
-		"/C/Users/febriyant.abidin/Desktop/qty_reservable/invdbg.log",
-		"/C/Users/febriyant.abidin/Desktop/qty_reservable/invdbg.db",
-		"/D/EBS_ORACLE_NSP/query/inventory_item_id.sql",
-		"/D/EBS_ORACLE_NSP/query/concurrent_NP.sql",
-		"/D/EBS_ORACLE_NSP/query/cek/get_user_n_password.sql",
+		"/D/reports_oracle/RPS003/RPS003new.xml",
+		"/D/DevSuiteHome_1/cauprefs.ora",
+		"/C/Users/febriyant.abidin/Desktop/pay_359338_359338_11i.sql",
+		"/C/Users/febriyant.abidin/Desktop/fnd_gfm_802665.tsv",
+		"/D/EBS_ORACLE_NSP/query/get_master_item_with_account.sql",
+		"/D/EBS_ORACLE_NSP/query/report/all_formula.sql",
+		"/D/EBS_ORACLE_NSP/query/report/order_vs_kapasitas_vs_ttlproduksi.sql",
 		"/D/EBS_ORACLE_NSP/query/report/get_hirarchy_po.sql",
-		"/D/EBS_ORACLE_NSP/query/report/all_resources.txt",
-		"/C/Users/febriyant.abidin/AppData/Roaming/Sublime Text 3/Packages/User/auto_save.sublime-settings",
-		"/D/EBS_ORACLE_NSP/query/cek/cek_receive_and_po.sql",
-		"/D/EBS_ORACLE_NSP/query/cek/cek_receiving.sql",
-		"/C/Users/febriyant.abidin/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/D/EBS_ORACLE_NSP/query/RPO001-BAPB.sql",
-		"/C/Users/febriyant.abidin/AppData/Roaming/Sublime Text 3/Packages/auto-save/auto_save.sublime-settings",
-		"/C/Users/febriyant.abidin/AppData/Roaming/Sublime Text 3/Packages/DocBlockr/Base File.sublime-settings",
-		"/D/EBS_ORACLE_NSP/query/report/YNP_GET_KAPASITAS.sql",
-		"/D/EBS_ORACLE_NSP/query/report/GET_ACTUAL_QTY_BATCH_PEX.sql",
-		"/D/EBS_ORACLE_NSP/query/cli/date_linux.sh",
-		"/D/EBS_ORACLE_NSP/query/get_data_detail_batch.sql",
-		"/D/EBS_ORACLE_NSP/query/cek/cek_supply_item",
-		"/D/EBS_ORACLE_NSP/query/report/position_hirarchy_name.sql",
-		"/D/EBS_ORACLE_NSP/query/report/get_total_qty_bulanan_produksi.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/mtl_transaction_error.sql",
-		"/C/Users/febriyant.abidin/Desktop/CstCheck_R12.sql",
-		"/C/Users/febriyant.abidin/AppData/Local/Temp/theme.css.txt",
-		"/D/devsedekah/bootstrap/less/navbar.less",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/cek_period_inventory.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/all_formula.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/MUTASI_INVENTORY.SQL",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/update_mail_status_user.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/cek_receive_and_po.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/order_vs_kapasitas_vs_ttlproduksi.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/cek_ou_io.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/GET_ACTUAL_QTY_BATCH_PEX.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/user_and_plant_responsibility.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/YNP_GET_KAPASITAS.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/np_get_actual_qty_variance_by_tgl_by_recipe_2.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/get_hirarchy_po.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/cek_receiving.sql",
-		"/C/Users/febriyant.abidin/Desktop/onhand_issue/mmt_moqd_mismatch_at_sublevel.sql",
-		"/C/Users/febriyant.abidin/Desktop/onhand_issue/18839067/inv/patch/115/sql/invmtmqt.sql",
-		"/C/Users/febriyant.abidin/Desktop/New folder/PROD_ebsapp.xml",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/update_request.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/get_data_detail_batch",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/concurrent_NP.sql",
-		"/C/Users/febriyant.abidin/Desktop/RPO002/RPO002.xml",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cli/sort_by_cpu.sh",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cli/date_linux.sh",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/RINV004.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/get_user_n_password.sql",
-		"/C/Users/febriyant.abidin/Desktop/onhand_issue/Diagnostics__Apps_Check_310516",
-		"/C/Windows/System32/drivers/etc/hosts",
-		"/D/reports_oracle/RPO002/RPO002.rdf",
-		"/C/Users/febriyant.abidin/Desktop/onhand_issue/18839067/inv/patch/115/sql/invmtmqd.sql",
-		"/C/Users/febriyant.abidin/Desktop/analyzereq.sql",
-		"/D/EBS_ORACLE_NSP/patch/application_stack/7237006/u7237006.drv",
-		"/D/EBS_ORACLE_NSP/patch/application_stack/7237006/patch_metadata.xml",
-		"/D/EBS_ORACLE_NSP/patch/application_stack/7237006/SuccessfullyRanAdjcopy.txt",
-		"/D/EBS_ORACLE_NSP/patch/application_stack/7237006/marker1.txt",
-		"/D/EBS_ORACLE_NSP/patch/application_stack/7237006/README.txt",
-		"/C/Users/febriyant.abidin/Desktop/Trial_balance.txt",
-		"/C/Users/febriyant.abidin/Desktop/RPO001_PO_140516_log",
-		"/C/Users/febriyant.abidin/Desktop/prod_apps/opmn.xml",
-		"/C/Users/febriyant.abidin/Desktop/opmn.xml",
-		"/D/reports_oracle/RINV004/XML/RINV0011.xml",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/RINV004",
-		"/D/reports_oracle/RGMF010/RGMF010_REV22/RGMF010.xml",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/NP_QUERY.sublime-project",
-		"/C/Users/febriyant.abidin/Desktop/REPORT_VARIANCE_DEV/GET_VARIANCE.xml",
-		"/D/cs/cd-key.reg",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/all_recipe.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/query_per_po.txt",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/NP_GET_ACTUAL_QTY_VARIANCE.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/NP_GET_ACTUAL_QTY_BY_RECIPE.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/np_get_actual_qty_variance_by_tgl_by_recipe.txt",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/np_get_actual_qty_variance_by_tgl_by_recipe.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/cek_period_inventory.txt",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/quantity_so_ver2.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/np_get_actual_qty_variance_sum.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/contoh_cashflow.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/cash_flow_2.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/mtl_subinventory.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/mtl_transaction.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/position_hirarchy_name.sql",
-		"/C/Users/febriyant.abidin/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/D/EBS_ORACLE_NSP/query/cek/get_user_n_password.sql",
+		"/D/EBS_ORACLE_NSP/query/cek_antrain_concurrent.sql",
+		"/D/xampp/htdocs/StarWebPRNT/Sample/Styled_ApiReceipt.html",
+		"/D/EBS_ORACLE_NSP/query/RELATION_FIELD.sql",
+		"/D/EBS_ORACLE_NSP/query/ROM001-REALISASI PENGIRIMAN.sql",
+		"/D/EBS_ORACLE_NSP/query/realisasi_pengiriman_web_controls.sql",
+		"/D/EBS_ORACLE_NSP/query/inventory_item_id.sql",
+		"/D/EBS_ORACLE_NSP/query/REPORT_C_O_A.sql",
 		"/D/xampp/apache/conf/httpd.conf",
 		"/D/xampp/apache/conf/extra/httpd-vhosts.conf",
-		"/C/Users/febriyant.abidin/Desktop/DEV3_ora_23423_CRPIT04.trc",
-		"/C/Users/febriyant.abidin/Desktop/w214788.mgr",
-		"/C/Users/febriyant.abidin/Desktop/proyek1-4.sql",
-		"/D/EBS_ORACLE_NSP/patch/Manufacture Product Development/18004145/README.txt",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/NP_GET_ACTUAL_QTY_VARIANCE",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/order_vs_kapasitas_vs_ttlproduksi.txt",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/qty_order_per_bulan_ver2.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/total_status_batch.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/all_resources.txt",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/kapasitas_mesin_sc_2925.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/cek_supply_item.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/get_account.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/YNP_GET_KAPASITAS_VER2.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/query sample all.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/order_vs_kapasitas_vs_ttlproduksi_ver4.sql",
-		"/C/Users/febriyant.abidin/Desktop/p18004145_R12.ECX.B_R12_GENERIC/18004145/README.txt",
-		"/C/Users/febriyant.abidin/Desktop/proyek2.sql",
-		"/C/Users/febriyant.abidin/Desktop/200966.lst",
-		"/C/Users/febriyant.abidin/Desktop/OENH_210792.lst",
-		"/C/Users/febriyant.abidin/Desktop/IsiPaket.txt",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/SUMSO_KAPASITAS_HARI_TOTALKAPASITAS.sql",
-		"/D/xampp/htdocs/emeeting/emeeting.sql",
-		"/D/xampp/htdocs/loginoop/vendor/cartalyst/sentry/schema/mysql.sql",
-		"/D/xampp/htdocs/loginoop/composer.json",
-		"/Z/xampp/htdocs/produksi/class/lib.class.php",
-		"/Z/xampp/htdocs/fire_system/config/konek.php",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/order_vs_kapasitas_vs_ttlproduksi_ver3.sql",
-		"/D/GTA V/steam_api.ini",
-		"/C/Users/febriyant.abidin/Desktop/proyek.sql",
-		"/C/Users/febriyant.abidin/Desktop/wfretry.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/quantity_so_no_pivot.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/qty_order_per_bulan.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/kapasitas_vs_SO.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/report/order_vs_kapasitas_vs_ttlproduksi_ver2.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/retry_approve_journal.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/update_effective_date_tax.sql",
-		"//workfolders.grahaplas.com/Users Data$/febriyant.abidin/My Documents/2015/query/cek/cek_error_lot_indivisible.sql",
-		"/D/xampp/htdocs/helpdesk/functions/sanitize.php",
-		"/C/Users/febriyant.abidin/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/D/xampp/htdocs/helpdesk/index.php"
+		"/D/EBS_ORACLE_NSP/query/get_hirarchy_pr.sql",
+		"/D/EBS_ORACLE_NSP/query/tracebility.sql",
+		"/D/EBS_ORACLE_NSP/query/concurrent_NP.sql",
+		"/D/EBS_ORACLE_NSP/query/insert_upload_customer_AKP.sql",
+		"/D/xampp/htdocs/StarWebPRNT/Sample/Styled_StarWebPRNTExtManager.html",
+		"/D/EBS_ORACLE_NSP/query/ROUTING_ALL.sql",
+		"/D/EBS_ORACLE_NSP/query/report/all_resources.txt",
+		"/D/EBS_ORACLE_NSP/query/cli/sort_by_cpu.sh",
+		"/D/EBS_ORACLE_NSP/query/report/get_total_qty_bulanan_produksi.sql",
+		"/D/EBS_ORACLE_NSP/query/report/qty_order_per_bulan.sql",
+		"/D/Shooter.S02E06.WEBRip.x264-RARBG/Shooter.S02E06.WEBRip.x264-RARBG.srt",
+		"/D/EBS_ORACLE_NSP/query/insert_upload_customer_AKP",
+		"/C/Users/febriyant.abidin/Desktop/Porco_Rosso (1992) [720p].srt",
+		"/D/EBS_ORACLE_NSP/query/LIST_ALL_TABLES.sql",
+		"/D/EBS_ORACLE_NSP/query/report/order_vs_kapasitas_vs_ttlproduksi_ver3.sql",
+		"/D/EBS_ORACLE_NSP/query/report/all_recipe.sql",
+		"/D/EBS_ORACLE_NSP/query/get_data_detail_batch.sql",
+		"/D/EBS_ORACLE_NSP/query/report/YNP_GET_KAPASITAS_VER2.sql",
+		"/D/EBS_ORACLE_NSP/query/cek_return_PO.sql",
+		"/D/EBS_ORACLE_NSP/query/cek/mtl_transaction.sql",
+		"/D/EBS_ORACLE_NSP/query/location_log_concurrent.sql",
+		"/D/EBS_ORACLE_NSP/query/report/YNP_GET_KAPASITAS.txt",
+		"/D/EBS_ORACLE_NSP/query/rom027.sql",
+		"/D/EBS_ORACLE_NSP/query/CEK_PO_RELATION_EAM.sql",
+		"/D/EBS_ORACLE_NSP/query/report/qty_order_per_bulan_ver2.txt",
+		"/D/EBS_ORACLE_NSP/query/GET_OU_FROM_IO.sql",
+		"/D/EBS_ORACLE_NSP/query/report/GET_ACTUAL_QTY_BATCH_PEX.sql",
+		"/D/EBS_ORACLE_NSP/query/get_move_order.sql",
+		"/D/EBS_ORACLE_NSP/query/cek_batch_report_produksi.sql",
+		"/D/xampp53/xampp/php/php.ini",
+		"/D/Only.Yesterday.1991.BluRay 720p-Ganool.srt",
+		"/C/Users/febriyant.abidin/Desktop/.env",
+		"/C/Users/febriyant.abidin/Desktop/Only.Yesterday.1991.BluRay 720p-Ganool.srt",
+		"/C/Users/febriyant.abidin/Desktop/Only.Yesterday.1991.720p.BluRay.srt",
+		"/D/l12170785.txt",
+		"/D/xampp53/xampp/htdocs/kiputih/index.php",
+		"/C/Users/febriyant.abidin/Desktop/seminggubelajarlaravel-5-3.pdf",
+		"/D/xampp53/xampp/htdocs/kiputih/assets/bootstrap/css/bootstrap.min.css",
+		"/D/xampp53/xampp/htdocs/kiputih/assets/bootstrap/css/bootstrap.css",
+		"/C/Users/febriyant.abidin/Desktop/l12136205.txt",
+		"/C/Users/febriyant.abidin/Desktop/l12135946.txt",
+		"/C/Users/febriyant.abidin/Desktop/l12127752.txt",
+		"/H/backupdissos/web39_2017-05-07_21-13/web/include/header.php",
+		"/H/backupdissos/web39_2017-05-07_21-13/web/current.php",
+		"/H/backupdissos/web39_2017-05-07_21-13/web/include/topheader.php",
+		"/D/EBS_ORACLE_NSP/query/cek/update_mail_status_user.sql",
+		"/D/EBS_ORACLE_NSP/query/report/SUMSO_KAPASITAS_HARI_TOTALKAPASITAS.sql",
+		"/D/EBS_ORACLE_NSP/query/get_move_order_with_qty.sql",
+		"/D/EBS_ORACLE_NSP/query/all_master_item.sql",
+		"/D/EBS_ORACLE_NSP/query/get_data_bank_account_supplier.sql",
+		"/D/EBS_ORACLE_NSP/query/report/np_get_actual_qty_variance_by_tgl_by_recipe.txt",
+		"/C/Users/febriyant.abidin/Desktop/RINV030/RINV030.xml",
+		"/D/EBS_ORACLE_NSP/query/cek/cek_ou_io.sql",
+		"/D/EBS_ORACLE_NSP/query/cek_move_order.sql",
+		"/D/EBS_ORACLE_NSP/query/cek/cek_receiving.sql",
+		"/D/EBS_ORACLE_NSP/query/cek_pr_by_po.sql",
+		"/D/EBS_ORACLE_NSP/query/report/kapasitas_mesin_sc_2925.sql",
+		"/D/EBS_ORACLE_NSP/query/cek/cek_receive_and_po.sql",
+		"/D/EBS_ORACLE_NSP/query/cek_po_from_no_receive.sql",
+		"/D/EBS_ORACLE_NSP/query/cek/cek_invoice.sql",
+		"/D/EBS_ORACLE_NSP/query/get_payment_term_account_profile.sql",
+		"/D/backup_web_dissos_prod/web/form/frm_list_artikel.php",
+		"/C/Users/febriyant.abidin/Desktop/db-backup-dissos-2017-04-27-8d2f7855aef4d6c63e07f35b1a02ded6.sql",
+		"/C/Users/febriyant.abidin/Desktop/flexneti_dinsos.sql",
+		"/C/Users/febriyant.abidin/Desktop/SR 3-14763256661/pay_346737_346737_11i.log",
+		"/C/Users/febriyant.abidin/Desktop/SR 3-14763256661/pay_120.sql",
+		"/D/EBS_ORACLE_NSP/query/report/user_and_plant_responsibility.sql",
+		"/D/EBS_ORACLE_NSP/query/report/cash_flow_2.sql",
+		"/D/EBS_ORACLE_NSP/query/report/cash_flow.sql",
+		"/D/EBS_ORACLE_NSP/query/rgl001_account_inquery_simpel.sql",
+		"/D/EBS_ORACLE_NSP/query/rgl001_account_inquery_simpel_ar.sql",
+		"/D/EBS_ORACLE_NSP/query/cek_item_conversion_from_batch.sql",
+		"/C/Users/febriyant.abidin/Desktop/sulton.txt",
+		"/C/Users/febriyant.abidin/Desktop/ROM027.sql",
+		"/C/Users/febriyant.abidin/Desktop/ACCOUNT_BULAN_2.txt",
+		"/C/Users/febriyant.abidin/Desktop/ACCOUNT_BULAN_1.txt",
+		"/C/Users/febriyant.abidin/Desktop/ACCOUNT_NAME_3.txt",
+		"/D/EBS_ORACLE_NSP/query/report/YNP_GET_KAPASITAS_VER2.txt",
+		"/D/EBS_ORACLE_NSP/query/report/position_hirarchy_name.sql",
+		"/D/EBS_ORACLE_NSP/query/cli/date_linux.sh",
+		"/D/EBS_ORACLE_NSP/query/report/RGMD016.sql",
+		"/D/EBS_ORACLE_NSP/query/periode_PO.sql",
+		"/D/EBS_ORACLE_NSP/query/report/np_get_actual_qty_variance_by_tgl_by_recipe.sql",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/D/winorcl/dump.sql",
+		"/D/EBS_ORACLE_NSP/query/get_bank_account_from_site.sql",
+		"/D/EBS_ORACLE_NSP/query/INSERT_PROCEDURE.SQL",
+		"/D/EBS_ORACLE_NSP/query/RPO001_PO",
+		"/D/EBS_ORACLE_NSP/query/GET_FN_NOMINAL_TERBILANG.sql",
+		"/D/EBS_ORACLE_NSP/query/report/NP_GET_ACTUAL_QTY_VARIANCE.sql",
+		"/D/EBS_ORACLE_NSP/query/report/YNP_GET_KAPASITAS.sql",
+		"/D/EBS_ORACLE_NSP/query/report/quantity_so_ver2.sql",
+		"/C/Users/febriyant.abidin/Desktop/backup_db.bat",
+		"/C/Users/febriyant.abidin/Desktop/Howl's Moving Castle 2004.srt",
+		"/C/Users/febriyant.abidin/AppData/Local/Temp/Financial_Statement_Generator_080915_semester_rev.txt",
+		"/D/EBS_ORACLE_NSP/query/cek/cek_period_inventory.sql",
+		"/D/EBS_ORACLE_NSP/query/contact_customer.sql",
+		"/C/Users/febriyant.abidin/AppData/Roaming/Sublime Text 3/Packages/User/SQLToolsConnections.sublime-settings",
+		"/D/EBS_ORACLE_NSP/query/test.sql",
+		"/C/Users/febriyant.abidin/AppData/Roaming/Sublime Text 3/Packages/SQLTools/Default (Windows).sublime-keymap",
+		"/D/DevSuiteHome_1/NETWORK/ADMIN/tnsnames.ora",
+		"/D/EBS_ORACLE_NSP/query/report/total_status_batch.sql",
+		"/D/EBS_ORACLE_NSP/query/RGL003.sql",
+		"/D/EBS_ORACLE_NSP/query/RGL003_DEV.sql",
+		"/C/Users/febriyant.abidin/Desktop/RPO001_PO.txt",
+		"/C/Users/febriyant.abidin/Desktop/RAP021.xml",
+		"/D/EBS_ORACLE_NSP/query/RPO005.sql",
+		"/C/Users/febriyant.abidin/AppData/Roaming/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/D/EBS_ORACLE_NSP/query/cek_bank_statement_reconcile.sql",
+		"/C/Users/febriyant.abidin/Desktop/try/index.html"
 	],
 	"find":
 	{
-		"height": 36.0
+		"height": 28.0
 	},
 	"find_in_files":
 	{
@@ -359,6 +434,49 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"send",
+			"send ascii",
+			"IBU INDAH",
+			"BA",
+			"TELP,",
+			"ID_KODE_SITE,",
+			"s(",
+			"(",
+			"(6",
+			"ID_KODE_SITE",
+			"sqlsrv",
+			"sql",
+			"sqlsrv",
+			"mssql",
+			"sql server",
+			"XXXXXX",
+			"permission_role",
+			"receipt",
+			"rece",
+			":TAHUN",
+			"insert",
+			"32000",
+			"ROUTING_NO_1",
+			"select * from posts",
+			"posts",
+			"attribute2",
+			"c_value",
+			"cycle_time",
+			"ppic",
+			"MOVE_ORDER_TYPE_NAME",
+			"MOVE_ORDER_TYPE_name",
+			"MOVE_ORDER_TYPE",
+			".00",
+			"move_order_type",
+			"line_status",
+			" MTRL",
+			"* MTRL",
+			" FROM MTRL",
+			"MTRL",
+			"line_status ",
+			"editprofil",
+			"edit_profil",
+			"edit",
 			"description",
 			"segment5",
 			"'-'\n",
@@ -393,6 +511,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"(SELECT to_char(sysdate, 'YYYY') FROM DUAL)",
+			""
 		],
 		"reverse": false,
 		"show_context": true,
@@ -403,7 +523,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -412,131 +532,87 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4412,
+						"buffer_size": 4646,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1571,
-								1571
+								2874,
+								2874
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
 							[
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -548,91 +624,268 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 225.0,
+						"translation.y": 1404.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "cek/get_user_n_password.sql",
+					"file": "RPS003.sql",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 975,
+						"buffer_size": 4829,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								975,
-								975
+								3938,
+								3938
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
 							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
-								"bh_single_quote_content"
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
+							"syntax": "Packages/SQL/SQL.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2388.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "cek/cek_invoice.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 245,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								199,
+								199
+							]
+						],
+						"settings":
+						{
 							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										198,
+										199
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/single_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										186,
+										187
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/SQL/SQL.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "cek/cek_receive_and_po.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 475,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								176,
+								176
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
 							"bracket_highlighter.regions":
 							[
 								"bh_round",
@@ -645,51 +898,436 @@
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"syntax": "Packages/SQL/SQL.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "report/get_total_qty_bulanan_produksi.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4644,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1156,
+								1156
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										429,
+										430
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										321,
+										322
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_square_content"
+								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"syntax": "Packages/SQL/SQL.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 468.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "cek/get_user_n_password.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1494,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								897,
+								897
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										908,
+										909
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										55,
+										56
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
+							],
+							"syntax": "Packages/SQL/SQL.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 156.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1107,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1107,
+								1107
+							]
+						],
+						"settings":
+						{
+							"auto_indent": false,
+							"bracket_highlighter.busy": false,
+							"default_dir": "D:\\EBS_ORACLE_NSP\\query",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_width": 2,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "report/YNP_GET_KAPASITAS.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2313,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1338,
+								1430
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										2142,
+										2143
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										187,
+										188
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content"
 							],
 							"syntax": "Packages/SQL/SQL.sublime-syntax",
 							"tab_size": 2,
@@ -703,475 +1341,111 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "report/get_total_qty_bulanan_produksi.sql",
+					"buffer": 8,
+					"file": "report/all_formula.sql",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4714,
+						"buffer_size": 1385,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								672,
-								672
+								865,
+								865
 							]
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
 							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
 							"bracket_highlighter.regions":
 							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_square_content"
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content"
 							],
 							"syntax": "Packages/SQL/SQL.sublime-syntax",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 126.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "inventory_item_id.sql",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 200,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								200
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"syntax": "Packages/SQL/SQL.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "cek/update_mail_status_user.sql",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 64,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								64
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
-							],
-							"syntax": "Packages/SQL/SQL.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "cek/cek_receiving.sql",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 125,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								125,
-								125
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content"
-							],
-							"syntax": "Packages/SQL/SQL.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 9,
 					"file": "report/get_hirarchy_po.sql",
 					"semi_transient": false,
 					"settings":
@@ -1189,66 +1463,37 @@
 						],
 						"settings":
 						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content"
-							],
 							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										274,
+										275
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/single_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										262,
+										263
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
 							"bracket_highlighter.regions":
 							[
 								"bh_curly",
@@ -1256,21 +1501,16 @@
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -1281,21 +1521,16 @@
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -1305,7 +1540,17 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content"
+								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
 							],
 							"syntax": "Packages/SQL/SQL.sublime-syntax"
 						},
@@ -1313,7 +1558,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1321,7 +1566,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 36.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -1358,7 +1603,7 @@
 	"project": "NP_QUERY.sublime-project",
 	"replace":
 	{
-		"height": 70.0
+		"height": 52.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1368,80 +1613,368 @@
 		"selected_items":
 		[
 			[
-				"item",
-				"inventory_item_id.sql"
+				"user",
+				"cek\\get_user_n_password.sql"
 			],
 			[
-				"hir",
-				"report\\get_hirarchy_po.sql"
+				"get",
+				"report\\YNP_GET_KAPASITAS.sql"
 			],
 			[
-				"ite",
-				"inventory_item_id.sql"
+				"invoice",
+				"cek\\cek_invoice.sql"
 			],
 			[
 				"rece",
-				"cek\\cek_receiving.sql"
+				"cek\\cek_receive_and_po.sql"
 			],
 			[
-				"upda",
-				"cek\\update_mail_status_user.sql"
+				"",
+				"report\\GET_ACTUAL_QTY_BATCH_PEX.sql"
+			],
+			[
+				"getpo",
+				"report\\get_hirarchy_po.sql"
+			],
+			[
+				"form",
+				"report\\all_formula.sql"
+			],
+			[
+				"act",
+				"report\\GET_ACTUAL_QTY_BATCH_PEX.sql"
 			],
 			[
 				"hira",
 				"report\\get_hirarchy_po.sql"
 			],
 			[
-				"bulanan",
-				"report\\get_total_qty_bulanan_produksi.sql"
+				"concur",
+				"cek_antrain_concurrent.sql"
 			],
 			[
-				"user",
-				"cek\\get_user_n_password.sql"
-			],
-			[
-				"get",
-				"cek\\get_user_n_password.sql"
-			],
-			[
-				"conc",
-				"concurrent_NP.sql"
-			],
-			[
-				"in",
+				"item",
 				"inventory_item_id.sql"
 			],
 			[
-				"po",
-				"cek\\cek_receive_and_po.sql"
+				"realisa",
+				"ROM001-REALISASI PENGIRIMAN.sql"
 			],
 			[
-				"re",
-				"cek\\cek_receiving.sql"
+				"rou",
+				"report\\all_resources.txt"
 			],
 			[
-				"ac",
-				"report\\GET_ACTUAL_QTY_BATCH_PEX.sql"
+				"relais",
+				"ROM001-REALISASI PENGIRIMAN.sql"
 			],
 			[
-				"date",
-				"cli\\date_linux.sh"
+				"realisas",
+				"ROM001-REALISASI PENGIRIMAN.sql"
 			],
 			[
-				"",
-				"report\\position_hirarchy_name.sql"
+				"concurrent",
+				"cek_antrain_concurrent.sql"
+			],
+			[
+				"customer",
+				"insert_upload_customer_AKP.sql"
+			],
+			[
+				"concu",
+				"cek_antrain_concurrent.sql"
 			],
 			[
 				"con",
 				"concurrent_NP.sql"
 			],
 			[
-				"update",
-				"cek\\update_request.sql"
+				"hirar",
+				"report\\get_hirarchy_po.sql"
+			],
+			[
+				"get_h",
+				"get_hirarchy_pr.sql"
+			],
+			[
+				"order",
+				"report\\qty_order_per_bulan.sql"
+			],
+			[
+				"tra",
+				"tracebility.sql"
+			],
+			[
+				"qty",
+				"report\\get_total_qty_bulanan_produksi.sql"
+			],
+			[
+				"actual",
+				"report\\GET_ACTUAL_QTY_BATCH_PEX.sql"
+			],
+			[
+				"ou",
+				"GET_OU_FROM_IO.sql"
+			],
+			[
+				"return",
+				"cek_return_PO.sql"
+			],
+			[
+				"rom",
+				"CEK_PO_RELATION_EAM.sql"
+			],
+			[
+				"lo",
+				"location_log_concurrent.sql"
+			],
+			[
+				"rprod",
+				"cek_batch_report_produksi.sql"
+			],
+			[
+				"bacth",
+				"report\\GET_ACTUAL_QTY_BATCH_PEX.sql"
 			],
 			[
 				"batch",
+				"get_data_detail_batch.sql"
+			],
+			[
+				"ite",
+				"inventory_item_id.sql"
+			],
+			[
+				"allba",
+				"report\\get_total_qty_bulanan_produksi.sql"
+			],
+			[
+				"recipe",
+				"report\\all_recipe.sql"
+			],
+			[
+				"results",
+				"report\\SUMSO_KAPASITAS_HARI_TOTALKAPASITAS.sql"
+			],
+			[
+				"master",
+				"all_master_item.sql"
+			],
+			[
+				"move",
+				"cek_move_order.sql"
+			],
+			[
+				"pr",
+				"D:\\EBS_ORACLE_NSP\\query\\CEK_PO_RELATION_EAM.sql"
+			],
+			[
+				"update",
+				"cek\\update_mail_status_user.sql"
+			],
+			[
+				"po",
+				"cek\\cek_receive_and_po.sql"
+			],
+			[
+				"eam",
+				"CEK_PO_RELATION_EAM.sql"
+			],
+			[
+				"ret",
+				"cek_return_PO.sql"
+			],
+			[
+				"rec",
+				"cek\\cek_receive_and_po.sql"
+			],
+			[
+				"recei",
+				"cek\\cek_receive_and_po.sql"
+			],
+			[
+				"kapasi",
+				"report\\kapasitas_mesin_sc_2925.sql"
+			],
+			[
+				"res",
+				"report\\all_resources.txt"
+			],
+			[
+				"resor",
+				"report\\SUMSO_KAPASITAS_HARI_TOTALKAPASITAS.sql"
+			],
+			[
+				"get_hira",
+				"report\\get_hirarchy_po.sql"
+			],
+			[
+				"cekrece",
+				"cek\\cek_receive_and_po.sql"
+			],
+			[
+				"account",
+				"rgl001_account_inquery_simpel_ar.sql"
+			],
+			[
+				"rgl001",
+				"rgl001_account_inquery_simpel.sql"
+			],
+			[
+				"invoic",
+				"cek_item_conversion_from_batch.sql"
+			],
+			[
+				"invo",
+				"cek\\cek_invoice.sql"
+			],
+			[
+				"re",
+				"cek_return_PO.sql"
+			],
+			[
+				"resp",
+				"report\\user_and_plant_responsibility.sql"
+			],
+			[
+				"respon",
+				"report\\user_and_plant_responsibility.sql"
+			],
+			[
+				"cash",
+				"report\\cash_flow_2.sql"
+			],
+			[
+				"cekpo",
+				"cek\\cek_receive_and_po.sql"
+			],
+			[
+				"invento",
+				"inventory_item_id.sql"
+			],
+			[
+				"formula",
+				"report\\all_formula.sql"
+			],
+			[
+				"so",
+				"report\\quantity_so_ver2.sql"
+			],
+			[
+				"mov",
+				"cek_move_order.sql"
+			],
+			[
+				"cek",
+				"cek_pr_by_po.sql"
+			],
+			[
+				"inser",
+				"INSERT_PROCEDURE.SQL"
+			],
+			[
+				"cekrec",
+				"cek\\cek_receive_and_po.sql"
+			],
+			[
+				"mtl",
+				"cek\\mtl_transaction.sql"
+			],
+			[
+				"hir",
+				"report\\get_hirarchy_po.sql"
+			],
+			[
+				"h",
+				"get_hirarchy_pr.sql"
+			],
+			[
+				"rar",
+				"RAR001_INVOICES.sql"
+			],
+			[
+				"rpo",
+				"RPO001_PO"
+			],
+			[
+				"reso",
+				"report\\all_resources.txt"
+			],
+			[
+				"bta",
+				"cek_batch_report_produksi.sql"
+			],
+			[
+				"hi",
+				"report\\position_hirarchy_name.sql"
+			],
+			[
+				"test",
+				"test.sql"
+			],
+			[
+				"fro",
+				"report\\all_formula.sql"
+			],
+			[
+				"bat",
+				"get_data_detail_batch.sql"
+			],
+			[
+				"g",
+				"get_move_order.sql"
+			],
+			[
+				"reslusts",
+				"report\\total_status_batch.sql"
+			],
+			[
+				"bulana",
+				"report\\get_total_qty_bulanan_produksi.sql"
+			],
+			[
+				"get_u",
+				"cek\\get_user_n_password.sql"
+			],
+			[
+				"mo",
+				"D:\\EBS_ORACLE_NSP\\query\\get_move_order.sql"
+			],
+			[
+				"recip",
+				"report\\all_recipe.sql"
+			],
+			[
+				"conc",
+				"cek_session_wf_notification.sql"
+			],
+			[
+				"upda",
+				"cek\\update_mail_status_user.sql"
+			],
+			[
+				"gethi",
+				"report\\get_hirarchy_po.sql"
+			],
+			[
+				"ac",
 				"report\\GET_ACTUAL_QTY_BATCH_PEX.sql"
+			],
+			[
+				"reci",
+				"report\\all_recipe.sql"
+			],
+			[
+				"bulanan",
+				"report\\get_total_qty_bulanan_produksi.sql"
+			],
+			[
+				"in",
+				"inventory_item_id.sql"
+			],
+			[
+				"date",
+				"cli\\date_linux.sh"
 			],
 			[
 				"rin",
@@ -1452,28 +1985,12 @@
 				"cek\\update_request.sql"
 			],
 			[
-				"ou",
-				"report\\order_vs_kapasitas_vs_ttlproduksi.sql"
-			],
-			[
 				"formu",
 				"report\\all_formula.sql"
 			],
 			[
-				"hirar",
-				"report\\get_hirarchy_po.sql"
-			],
-			[
-				"hi",
-				"report\\get_hirarchy_po.sql"
-			],
-			[
 				"appro",
 				"\\\\workfolders.grahaplas.com\\Users Data$\\febriyant.abidin\\My Documents\\2015\\query\\report\\position_hirarchy_name.sql"
-			],
-			[
-				"cash",
-				"report\\cash_flow_2.sql"
 			],
 			[
 				"contoh",
@@ -1484,28 +2001,8 @@
 				"cek\\query_per_po.txt"
 			],
 			[
-				"recei",
-				"\\\\workfolders.grahaplas.com\\Users Data$\\febriyant.abidin\\My Documents\\2015\\query\\cek\\cek_receiving.sql"
-			],
-			[
-				"so",
-				"report\\quantity_so_ver2.sql"
-			],
-			[
-				"tra",
-				"cek\\mtl_transaction.sql"
-			],
-			[
-				"mtl",
-				"cek\\mtl_transaction.sql"
-			],
-			[
 				"ma",
 				"cek\\mtl_transaction.sql"
-			],
-			[
-				"rec",
-				"cek\\cek_receiving.sql"
 			],
 			[
 				"up",
@@ -1530,22 +2027,6 @@
 			[
 				"a",
 				"report\\all_resources.txt"
-			],
-			[
-				"res",
-				"report\\all_resources.txt"
-			],
-			[
-				"form",
-				"report\\all_formula.sql"
-			],
-			[
-				"cek",
-				"cek\\cek_receiving.sql"
-			],
-			[
-				"kapasi",
-				"report\\kapasitas_mesin_sc_2925.sql"
 			],
 			[
 				"for",
@@ -1588,10 +2069,6 @@
 				"report\\SUMSO_KAPASITAS_HARI_TOTALKAPASITAS.sql"
 			],
 			[
-				"cekrece",
-				"cek\\cek_receiving.sql"
-			],
-			[
 				"index",
 				"D:\\xampp\\htdocs\\helpdesk\\index.php"
 			]
@@ -1605,8 +2082,40 @@
 		"selected_items":
 		[
 			[
+				"SUPP",
+				"D:\\EBS_ORACLE_NSP\\Support Oracle\\support_oracle.sublime-project"
+			],
+			[
+				"s",
+				"D:\\EBS_ORACLE_NSP\\Support Oracle\\support_oracle.sublime-project"
+			],
+			[
 				"",
-				"D:\\devsedekah\\node-js\\node-js-sedekah.sublime-project"
+				"D:\\xampp53\\xampp\\htdocs\\SMKT3\\SMKT3.sublime-project"
+			],
+			[
+				"admin",
+				"D:\\xampp\\htdocs\\adminboot\\adminboot.sublime-project"
+			],
+			[
+				"ss",
+				"D:\\xampp\\htdocs\\limatiga\\ssos.sublime-project"
+			],
+			[
+				"per",
+				"D:\\xampp\\htdocs\\personalblog\\personalblog.sublime-project"
+			],
+			[
+				"smkt",
+				"D:\\xampp53\\xampp\\htdocs\\SMKT3\\SMKT3.sublime-project"
+			],
+			[
+				"p",
+				"D:\\xampp\\htdocs\\personalblog\\personalblog.sublime-project"
+			],
+			[
+				"larap",
+				"D:\\xampp\\htdocs\\latihanrk\\larapuslima.sublime-project"
 			],
 			[
 				"lara",
@@ -1644,7 +2153,7 @@
 	"settings":
 	{
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,

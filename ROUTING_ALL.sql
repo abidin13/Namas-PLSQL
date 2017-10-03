@@ -1,0 +1,31 @@
+SELECT 
+    FRH.ROUTING_ID,
+    FRH.ROUTING_NO,
+    FRH.ROUTING_DESC,
+    FRH.ROUTING_VERS,
+    FRH.ROUTING_CLASS,
+    FRH.ROUTING_QTY,
+    DECODE(FRH.ROUTING_STATUS,'100','NEW',
+                                '200','Request Approval for Laboratory Use',
+                                '300','Revise for Laboratory',
+                                '400','Approved for Laboratory Use',
+                                '500','Request Approval for General Use',
+                                '600','Revise for General Use',
+                                '700','Approved for General Use',
+                                '800','On Hold',
+                                '900','Frozen',
+                                '1000','Obsolete/Archived') AS ROUTING_STATUS,
+    FRH.ITEM_UM,
+    FRH.ROUTING_UOM,
+    FRH.EFFECTIVE_START_DATE,
+    FRH.EFFECTIVE_END_DATE,
+    FRH.CONTIGUOUS_IND,
+    FRH.CONTIGUOUS_IND,
+    FRH.DELETE_MARK,
+    FRH.TEXT_CODE,
+    FRH.INACTIVE_IND,
+    FRH.IN_USE,
+    HAOU.NAME
+FROM FM_ROUT_HDR FRH, HR_ALL_ORGANIZATION_UNITS HAOU
+WHERE FRH.OWNER_ORGANIZATION_ID = HAOU.ORGANIZATION_ID
+ORDER BY FRH.OWNER_ORGANIZATION_ID ASC

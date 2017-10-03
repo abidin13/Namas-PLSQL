@@ -21,3 +21,15 @@ SELECT usr.user_name,
           ) PASSWORD
   FROM fnd_user usr
  WHERE usr.user_name = '&USER_NAME';
+ -----------------------------------------------------------------------------------------------------------
+ SELECT   USR.USER_NAME, (SELECT DISPLAY_NAME
+                           FROM WF_USERS
+                          WHERE NAME = USR.USER_NAME) DISPLAY_NAME,
+         CASE
+            WHEN USR.END_DATE IS NULL
+               THEN 'AKTIF'
+            ELSE 'TIDAK AKTIF'
+         END AS STATUS_USER
+    FROM FND_USER USR
+   WHERE USR.END_DATE IS NULL AND SUBSTR (USR.USER_NAME, 1, 3) = 'MDN'
+ORDER BY USR.USER_NAME

@@ -1,0 +1,602 @@
+SELECT zz.*,
+       CASE
+          WHEN approve2 IS NULL OR approve2 = ''
+             THEN ''
+          ELSE 'This PO is Computer Generated, Approved is Completed within Company''s Approval, No Signature is Needed'
+       END AS note_approve2,
+       (SELECT FLAG_LOGO 
+       FROM   YNP_NOMOR_DOC_ISO 
+       WHERE  ORGANIZATION_ID = zz.ORG_ID
+       AND    NAMA_DOC = 'PO') AS FLAG_LOGO,
+       quantity * price AS total_amount
+  FROM (SELECT a.segment1 AS po_nomor, a.creation_date, a.revision_num,  
+               a.revised_date, a.org_id,
+               case when  (a.attribute2 = 'None') or (a.attribute2 = '') or (a.attribute2 is null) then
+                   (SELECT NAME
+                      FROM xle_entity_profiles aa
+                     WHERE legal_entity_id =
+                              (SELECT default_legal_context_id
+                                 FROM hr_operating_units bb
+                                WHERE bb.organization_id = a.org_id))
+               else
+                   'PT Veranda Medika Indonesia'
+               end AS name_legal,
+               
+                       (SELECT NAME
+                          FROM hr_all_organization_units
+                         WHERE organization_id = a.org_id) 
+              as ou,
+              (SELECT NAME
+                      FROM xle_entity_profiles aa
+                     WHERE legal_entity_id =
+                              (SELECT default_legal_context_id
+                                 FROM hr_operating_units bb
+                                WHERE bb.organization_id = a.org_id))
+              as ou1,
+               CASE
+                  WHEN :nomor_iso = 'Y'
+                     THEN (SELECT nomor_doc
+                             FROM ynp_nomor_doc_iso
+                            WHERE organization_id = a.org_id
+                              AND nama_doc = 'PO')
+                  ELSE ''
+               END AS nomor_iso,
+               a.currency_code AS curr,
+               (SELECT description
+                  FROM ap_terms
+                 WHERE term_id = a.terms_id) AS term_of_payment,
+               (SELECT lookup_code
+                  FROM fnd_lookup_values
+                 WHERE lookup_code = a.fob_lookup_code
+               and rownum = 1) AS fob,
+               case when  (a.attribute2 = 'None') or (a.attribute2 = '') or (a.attribute2 is null) then
+                   (SELECT vendor_name
+                      FROM ap_suppliers
+                     WHERE vendor_id = a.vendor_id) 
+               else
+                   (SELECT address_line3
+                  FROM ap_supplier_sites_all
+                 WHERE vendor_site_id = a.vendor_site_id
+                   AND org_id = a.org_id)
+               end AS sup_nama,
+               case when  (a.attribute2 = 'None') or (a.attribute2 = '') or (a.attribute2 is null) then
+                   (SELECT vendor_site_code
+                      FROM ap_supplier_sites_all
+                     WHERE vendor_site_id = a.vendor_site_id
+                       AND org_id = a.org_id)
+               else
+                   (SELECT city
+                  FROM ap_supplier_sites_all
+                 WHERE vendor_site_id = a.vendor_site_id) 
+               end AS sup_site,
+               (SELECT hcp.phone_area_code || ' ' || hcp.phone_number
+                                                           phone
+                  FROM hz_contact_points hcp,
+                       hz_party_sites hps,
+                       ap_suppliers ass
+                 WHERE 1 = 1
+                   AND ass.vendor_id = a.vendor_id
+                   --AND    ASS.VENDOR_NAME ='Triputra Oto Karunia Sejahtera , PT'
+                   AND hps.party_id = ass.party_id
+                   AND hcp.owner_table_id = hps.party_site_id
+                   AND hcp.primary_flag = 'Y'
+                   AND hcp.owner_table_name = 'HZ_PARTY_SITES'
+                   AND hcp.status = 'A'
+                   AND hcp.contact_point_type = 'PHONE'
+                   AND hcp.phone_line_type = 'GEN'
+                   AND ROWNUM = 1) AS sup_telp,
+               (SELECT hcp.phone_area_code || ' ' || hcp.phone_number
+                                                            phone
+                  FROM hz_contact_points hcp,
+                       hz_party_sites hps,
+                       ap_suppliers ass
+                 WHERE 1 = 1
+                   AND ass.vendor_id = a.vendor_id
+                   --AND    ASS.VENDOR_NAME=:VENDOR_NAME
+                   AND hps.party_id = ass.party_id
+                   AND hcp.owner_table_name = 'HZ_PARTY_SITES'
+                   AND hcp.owner_table_id = hps.party_site_id
+                   AND hcp.status = 'A'
+                   AND hcp.contact_point_type = 'PHONE'
+                   AND hcp.phone_line_type = 'FAX'
+                   AND ROWNUM = 1) AS sup_fax,
+               (SELECT DISTINCT f.party_name
+                           FROM hz_relationships a,
+                                ap_suppliers b,
+                                ap_supplier_sites_all c,
+                                ap_supplier_contacts d,
+                                hz_org_contacts e,
+                                hz_parties f,
+                                hz_parties g,
+                                hz_contact_points h
+                          WHERE e.party_relationship_id = a.relationship_id
+                            AND a.subject_id = b.party_id
+                            AND a.relationship_code = 'CONTACT'
+                            AND a.object_table_name = 'HZ_PARTIES'
+                            AND b.vendor_id = c.vendor_id
+                            AND a.object_id = f.party_id
+                            AND a.party_id = g.party_id
+                            AND d.relationship_id = e.party_relationship_id
+                            AND c.party_site_id = d.org_party_site_id
+                            AND g.party_type = 'PARTY_RELATIONSHIP'
+                            AND g.party_id = h.owner_table_id
+                            AND h.owner_table_name = 'HZ_PARTIES'
+                            AND c.vendor_site_id = a.vendor_site_id)
+                                                                  AS sup_attn,
+               (SELECT email_address
+                  FROM ap_supplier_sites_all
+                 WHERE vendor_site_id = a.vendor_site_id)
+                                                         AS sup_email_address,
+               (SELECT address_line1
+                  FROM ap_supplier_sites_all
+                 WHERE vendor_site_id = a.vendor_site_id) AS sup_address,
+               (SELECT city
+                  FROM ap_supplier_sites_all
+                 WHERE vendor_site_id = a.vendor_site_id) AS sup_address_city,
+               (SELECT ee.bank_account_num
+                  FROM hz_parties aa,
+                       ap_suppliers bb,
+                       iby_external_payees_all cc,
+                       iby_pmt_instr_uses_all dd,
+                       iby_ext_bank_accounts ee,
+                       hz_parties aa_bank,
+                       hz_parties aa_branch
+                 WHERE aa.party_id = bb.party_id
+                   AND aa.party_id = cc.payee_party_id
+                   AND cc.ext_payee_id = dd.ext_pmt_party_id(+)
+                   AND dd.instrument_id = ee.ext_bank_account_id(+)
+                   AND ee.bank_id = aa_bank.party_id(+)
+                   AND ee.branch_id = aa_branch.party_id(+)
+                   AND aa.party_id = (SELECT party_id
+                                        FROM ap_suppliers
+                                       WHERE vendor_id = a.vendor_id)
+                   AND cc.supplier_site_id IS NULL
+                   AND ROWNUM = 1) AS bank_account_num,
+               (SELECT aa_bank.party_name
+                  FROM hz_parties aa,
+                       ap_suppliers bb,
+                       iby_external_payees_all cc,
+                       iby_pmt_instr_uses_all dd,
+                       iby_ext_bank_accounts ee,
+                       hz_parties aa_bank,
+                       hz_parties aa_branch
+                 WHERE aa.party_id = bb.party_id
+                   AND aa.party_id = cc.payee_party_id
+                   AND cc.ext_payee_id = dd.ext_pmt_party_id(+)
+                   AND dd.instrument_id = ee.ext_bank_account_id(+)
+                   AND ee.bank_id = aa_bank.party_id(+)
+                   AND ee.branch_id = aa_branch.party_id(+)
+                   AND aa.party_id = (SELECT party_id
+                                        FROM ap_suppliers
+                                       WHERE vendor_id = a.vendor_id)
+                   AND cc.supplier_site_id IS NULL
+                   AND ROWNUM = 1) AS bank,
+               (SELECT aa_bank.address1
+                  FROM hz_parties aa,
+                       ap_suppliers bb,
+                       iby_external_payees_all cc,
+                       iby_pmt_instr_uses_all dd,
+                       iby_ext_bank_accounts ee,
+                       hz_parties aa_bank,
+                       hz_parties aa_branch
+                 WHERE aa.party_id = bb.party_id
+                   AND aa.party_id = cc.payee_party_id
+                   AND cc.ext_payee_id = dd.ext_pmt_party_id(+)
+                   AND dd.instrument_id = ee.ext_bank_account_id(+)
+                   AND ee.bank_id = aa_bank.party_id(+)
+                   AND ee.branch_id = aa_branch.party_id(+)
+                   AND aa.party_id = (SELECT party_id
+                                        FROM ap_suppliers
+                                       WHERE vendor_id = a.vendor_id)
+                   AND cc.supplier_site_id IS NULL
+                   AND ROWNUM = 1) AS add_bank,
+               (SELECT aa_branch.party_name
+                  FROM hz_parties aa,
+                       ap_suppliers bb,
+                       iby_external_payees_all cc,
+                       iby_pmt_instr_uses_all dd,
+                       iby_ext_bank_accounts ee,
+                       hz_parties aa_bank,
+                       hz_parties aa_branch
+                 WHERE aa.party_id = bb.party_id
+                   AND aa.party_id = cc.payee_party_id
+                   AND cc.ext_payee_id = dd.ext_pmt_party_id(+)
+                   AND dd.instrument_id = ee.ext_bank_account_id(+)
+                   AND ee.bank_id = aa_bank.party_id(+)
+                   AND ee.branch_id = aa_branch.party_id(+)
+                   AND aa.party_id = (SELECT party_id
+                                        FROM ap_suppliers
+                                       WHERE vendor_id = a.vendor_id)
+                   AND cc.supplier_site_id IS NULL
+                   AND ROWNUM = 1) AS add_bank_branch,
+               (SELECT ee.bank_account_name
+                  FROM hz_parties aa,
+                       ap_suppliers bb,
+                       iby_external_payees_all cc,
+                       iby_pmt_instr_uses_all dd,
+                       iby_ext_bank_accounts ee,
+                       hz_parties aa_bank,
+                       hz_parties aa_branch
+                 WHERE aa.party_id = bb.party_id
+                   AND aa.party_id = cc.payee_party_id
+                   AND cc.ext_payee_id = dd.ext_pmt_party_id(+)
+                   AND dd.instrument_id = ee.ext_bank_account_id(+)
+                   AND ee.bank_id = aa_bank.party_id(+)
+                   AND ee.branch_id = aa_branch.party_id(+)
+                   AND aa.party_id = (SELECT party_id
+                                        FROM ap_suppliers
+                                       WHERE vendor_id = a.vendor_id)
+                   AND cc.supplier_site_id IS NULL
+                   AND ROWNUM = 1) AS beneficlary,
+               (SELECT ee.attribute1
+                  FROM hz_parties aa,
+                       ap_suppliers bb,
+                       iby_external_payees_all cc,
+                       iby_pmt_instr_uses_all dd,
+                       iby_ext_bank_accounts ee,
+                       hz_parties aa_bank,
+                       hz_parties aa_branch
+                 WHERE aa.party_id = bb.party_id
+                   AND aa.party_id = cc.payee_party_id
+                   AND cc.ext_payee_id = dd.ext_pmt_party_id(+)
+                   AND dd.instrument_id = ee.ext_bank_account_id(+)
+                   AND ee.bank_id = aa_bank.party_id(+)
+                   AND ee.branch_id = aa_branch.party_id(+)
+                   AND aa.party_id = (SELECT party_id
+                                        FROM ap_suppliers
+                                       WHERE vendor_id = a.vendor_id)
+                   AND cc.supplier_site_id IS NULL
+                   AND ROWNUM = 1) AS swift_code_bank,
+               (SELECT ee.iban
+                  FROM hz_parties aa,
+                       ap_suppliers bb,
+                       iby_external_payees_all cc,
+                       iby_pmt_instr_uses_all dd,
+                       iby_ext_bank_accounts ee,
+                       hz_parties aa_bank,
+                       hz_parties aa_branch
+                 WHERE aa.party_id = bb.party_id
+                   AND aa.party_id = cc.payee_party_id
+                   AND cc.ext_payee_id = dd.ext_pmt_party_id(+)
+                   AND dd.instrument_id = ee.ext_bank_account_id(+)
+                   AND ee.bank_id = aa_bank.party_id(+)
+                   AND ee.branch_id = aa_branch.party_id(+)
+                   AND aa.party_id = (SELECT party_id
+                                        FROM ap_suppliers
+                                       WHERE vendor_id = a.vendor_id)
+                   AND cc.supplier_site_id IS NULL
+                   AND ROWNUM = 1) AS iban_bank,
+               (SELECT ee.currency_code
+                  FROM hz_parties aa,
+                       ap_suppliers bb,
+                       iby_external_payees_all cc,
+                       iby_pmt_instr_uses_all dd,
+                       iby_ext_bank_accounts ee,
+                       hz_parties aa_bank,
+                       hz_parties aa_branch
+                 WHERE aa.party_id = bb.party_id
+                   AND aa.party_id = cc.payee_party_id
+                   AND cc.ext_payee_id = dd.ext_pmt_party_id(+)
+                   AND dd.instrument_id = ee.ext_bank_account_id(+)
+                   AND ee.bank_id = aa_bank.party_id(+)
+                   AND ee.branch_id = aa_branch.party_id(+)
+                   AND aa.party_id = (SELECT party_id
+                                        FROM ap_suppliers
+                                       WHERE vendor_id = a.vendor_id)
+                   AND cc.supplier_site_id IS NULL
+                   AND ROWNUM = 1) AS curr_bank,
+               /*(SELECT DESCRIPTION FROM HR_LOCATIONS_ALL WHERE  SHIP_TO_LOCATION_ID = A.SHIP_TO_LOCATION_ID) AS OU_NAMA,
+               (SELECT ADDRESS_LINE_1 FROM HR_LOCATIONS_ALL WHERE  SHIP_TO_LOCATION_ID = A.SHIP_TO_LOCATION_ID) AS OU_ADD,
+               (SELECT TOWN_OR_CITY FROM HR_LOCATIONS_ALL WHERE  SHIP_TO_LOCATION_ID = A.SHIP_TO_LOCATION_ID) AS OU_TOWN,
+               (SELECT TELEPHONE_NUMBER_1 FROM HR_LOCATIONS_ALL WHERE  SHIP_TO_LOCATION_ID = A.SHIP_TO_LOCATION_ID) AS OU_TELP,
+               (SELECT LOC_INFORMATION13 FROM HR_LOCATIONS_ALL WHERE  SHIP_TO_LOCATION_ID = A.SHIP_TO_LOCATION_ID) AS OU_FAX,*/
+               case when  (a.attribute2 = 'None') or (a.attribute2 = '') or (a.attribute2 is null) then
+                       (SELECT description
+                          FROM hr_locations_all
+                         WHERE location_id =
+                                       (SELECT location_id
+                                          FROM hr_all_organization_units
+                                         WHERE organization_id = a.org_id))
+               else
+                   'PT Veranda Medika Indonesia'
+               end AS ou_nama,
+               case when  (a.attribute2 = 'None') or (a.attribute2 = '') or (a.attribute2 is null) then
+                       (SELECT address_line_1
+                          FROM hr_locations_all
+                         WHERE location_id =
+                                        (SELECT location_id
+                                           FROM hr_all_organization_units
+                                          WHERE organization_id = a.org_id))
+               else
+                   'Komp. Distribution Center Jl. Kapuk Kamal Raya No. 40D/16 Jakarta Utara, Indonesia'
+               end  AS ou_add,
+               (SELECT address_line_1
+                          FROM hr_locations_all
+                         WHERE location_id =
+                                        (SELECT location_id
+                                           FROM hr_all_organization_units
+                                          WHERE organization_id = a.org_id)) as ou_add1,
+               case when  (a.attribute2 = 'None') or (a.attribute2 = '') or (a.attribute2 is null) then
+                   (SELECT town_or_city
+                      FROM hr_locations_all
+                     WHERE location_id =
+                                   (SELECT location_id
+                                      FROM hr_all_organization_units
+                                     WHERE organization_id = a.org_id))
+               else
+                   'Jakarta Utara'
+               end AS ou_town,
+               (SELECT town_or_city
+                      FROM hr_locations_all
+                     WHERE location_id =
+                                   (SELECT location_id
+                                      FROM hr_all_organization_units
+                                     WHERE organization_id = a.org_id)) AS ou_town1,
+               case when  (a.attribute2 = 'None') or (a.attribute2 = '') or (a.attribute2 is null) then
+                       (SELECT telephone_number_1
+                          FROM hr_locations_all
+                         WHERE location_id =
+                                       (SELECT location_id
+                                          FROM hr_all_organization_units
+                                     WHERE organization_id = a.org_id))
+               else
+                   ''
+               end AS ou_telp,
+               case when  (a.attribute2 = 'None') or (a.attribute2 = '') or (a.attribute2 is null) then
+                   (SELECT loc_information13
+                      FROM hr_locations_all
+                     WHERE location_id =
+                                    (SELECT location_id
+                                       FROM hr_all_organization_units
+                                      WHERE organization_id = a.org_id))
+               else
+                   ''
+               end AS ou_fax,
+               (SELECT    first_name
+                       || ' '
+                       || middle_names
+                       || ' '
+                       || last_name
+                  FROM per_all_people_f aa
+                 WHERE aa.person_id = a.agent_id
+                   AND (TRUNC (a.creation_date) BETWEEN aa.effective_start_date
+                                                    AND aa.effective_end_date
+                       )) buyer,
+               CASE
+                  WHEN (SELECT NAME
+                          FROM hr_all_organization_units
+                         WHERE organization_id = a.org_id) =
+                                                     'NSP - Solo OU'
+                  AND (SELECT    first_name
+                              || ' '
+                              || middle_names
+                              || ' '
+                              || last_name
+                         FROM per_all_people_f aa
+                        WHERE (TRUNC (a.creation_date)
+                                  BETWEEN aa.effective_start_date
+                                      AND aa.effective_end_date
+                              )
+                          AND aa.person_id =
+                                 (SELECT MAX (employee_id)
+                                    FROM po_action_history
+                                   WHERE object_id = a.po_header_id
+                                     AND sequence_num = 2
+                                     AND object_type_code = 'PO')) IS NULL
+                  AND a.creation_date <
+                         TO_DATE ('1-JUN-2014 00:00:00',
+                                  'DD-MON-RRRR HH24:MI:SS'
+                                 )
+                     THEN 'Kusno Pandit Isworo'
+                  WHEN  
+                      (SELECT    first_name
+                              || ' '
+                              || middle_names
+                              || ' '
+                              || last_name
+                         FROM per_all_people_f aa
+                        WHERE (TRUNC (a.creation_date)
+                                  BETWEEN aa.effective_start_date
+                                      AND aa.effective_end_date
+                              )
+                          AND aa.person_id =
+                                 (SELECT MAX (employee_id)
+                                    FROM po_action_history
+                                   WHERE object_id = a.po_header_id
+                                     AND sequence_num = 2
+                                     AND object_type_code = 'PO')) IS NOT NULL 
+                      AND
+                      a.attribute2 = 'PT Veranda'
+                  THEN
+                      'Shandy Irawan'
+                  ELSE (SELECT    first_name
+                               || ' '
+                               || middle_names
+                               || ' '
+                               || last_name
+                          FROM per_all_people_f aa
+                         WHERE (TRUNC (a.creation_date)
+                                   BETWEEN aa.effective_start_date
+                                       AND aa.effective_end_date
+                               )
+                           AND aa.person_id =
+                                  (SELECT MAX (employee_id)
+                                     FROM po_action_history
+                                    WHERE object_id = a.po_header_id
+                                      AND sequence_num = 2
+                                      AND object_type_code = 'PO'))
+               END approve1,
+               CASE
+                  WHEN (SELECT NAME
+                          FROM hr_all_organization_units
+                         WHERE organization_id = a.org_id) =
+                                                     'NSP - Solo OU'
+                  AND (SELECT    first_name
+                              || ' '
+                              || middle_names
+                              || ' '
+                              || last_name
+                         FROM per_all_people_f aa
+                        WHERE (TRUNC (a.creation_date)
+                                  BETWEEN aa.effective_start_date
+                                      AND aa.effective_end_date
+                              )
+                          AND aa.person_id =
+                                 (SELECT MAX (cc.employee_id)
+                                    FROM po_action_history cc
+                                   WHERE cc.object_id = a.po_header_id
+                                     AND object_type_code = 'PO'
+                                     AND action_code = 'APPROVE'
+                                     AND cc.sequence_num =
+                                            (SELECT MAX (sequence_num)
+                                               FROM po_action_history
+                                              WHERE object_id = a.po_header_id
+                                                AND action_code = 'APPROVE'
+                                                AND object_type_code = 'PO'))) IS NULL
+                  AND a.creation_date <
+                         TO_DATE ('1-JUN-2014 00:00:00',
+                                  'DD-MON-RRRR HH24:MI:SS'
+                                 )
+                     THEN CASE
+                            WHEN ynppo_get_amount (a.segment1,
+                                                   :p_reporting_level,
+                                                   :p_context
+                                                  ) >= 0
+                            AND ynppo_get_amount (a.segment1,
+                             :p_reporting_level,
+                                                  :p_context
+                                                 ) <= 1000000
+                               THEN 'Kusno Pandit Kusworo'
+                            WHEN ynppo_get_amount (a.segment1,
+                                                   :p_reporting_level,
+                                                   :p_context
+                                                  ) > 1000000
+                            AND ynppo_get_amount (a.segment1,
+                                                  :p_reporting_level,
+                                                  :p_context
+                                                 ) <= 10000000
+                               THEN 'Minardi'
+                            WHEN ynppo_get_amount (a.segment1,
+                                                   :p_reporting_level,
+                                                   :p_context
+                                                  ) > 10000000
+                            AND ynppo_get_amount (a.segment1,
+                                                  :p_reporting_level,
+                                                  :p_context
+                                                 ) <= 250000000
+                               THEN 'Suhartono Rudy'
+                            WHEN ynppo_get_amount (a.segment1,
+                                                   :p_reporting_level,
+                                                   :p_context
+                                                  ) > 250000000
+                            AND ynppo_get_amount (a.segment1,
+                                                  :p_reporting_level,
+                                                  :p_context
+                                                 ) <= 2500000000
+                               THEN 'Herman Neo'
+                            WHEN ynppo_get_amount (a.segment1,
+                                                   :p_reporting_level,
+                                                   :p_context
+                                                  ) > 2500000000
+                               THEN 'Edhie Wulandiarto'
+                         END
+                         
+                  WHEN  
+                      (SELECT    first_name
+                              || ' '
+                              || middle_names
+                              || ' '
+                              || last_name
+                         FROM per_all_people_f aa
+                        WHERE (TRUNC (a.creation_date)
+                                  BETWEEN aa.effective_start_date
+                                      AND aa.effective_end_date
+                              )
+                          AND aa.person_id =
+                                 (SELECT MAX (employee_id)
+                                    FROM po_action_history
+                                   WHERE object_id = a.po_header_id
+                                     AND sequence_num = 2
+                                     AND object_type_code = 'PO')) IS NOT NULL 
+                      AND
+                      a.attribute2 = 'PT Veranda'
+                  THEN
+                      'Matius Wayne'                  
+                  ELSE (SELECT    first_name
+                               || ' '
+                               || middle_names
+                               || ' '
+                               || last_name
+                          FROM per_all_people_f aa
+                         WHERE (TRUNC (a.creation_date)
+                                   BETWEEN aa.effective_start_date
+                                       AND aa.effective_end_date
+                               )
+                           AND ROWNUM = 1
+                           AND aa.person_id =
+                                  (SELECT MAX (cc.employee_id)
+                                     FROM po_action_history cc
+                                    WHERE cc.object_id = a.po_header_id
+                                      AND object_type_code = 'PO'
+                                      AND action_code = 'APPROVE'
+                                      AND cc.sequence_num =
+                                             (SELECT MAX (sequence_num)
+                                                FROM po_action_history
+                                               WHERE object_id =
+                                                                a.po_header_id
+                                                 AND action_code = 'APPROVE'
+                                                 and object_revision_num = 0
+                                                 AND object_type_code = 'PO')))
+               END approve2,
+               ROWNUM AS line_numa, b.line_num, 
+               (SELECT DISTINCT segment1||'-'||segment2||'-'||segment3||'-'||segment4||'-'||segment5 
+                FROM mtl_system_items 
+                WHERE inventory_item_id = b.item_id
+                AND ROWNUM = 1 ) item_code,
+               b.item_description,
+               cari_pr_po_line (b.po_line_id) AS nomor_pr, b.quantity,
+               (SELECT uom_code
+                  FROM mtl_units_of_measure
+                 WHERE unit_of_measure = b.unit_meas_lookup_code) AS uom,
+               cari_shipment_po (b.po_line_id) AS shipment,
+               DECODE (b.attribute4,
+                       NULL, 0,
+                       b.attribute4 * b.quantity
+                      ) AS diskon,
+               b.unit_price,
+               CASE
+                  WHEN b.attribute4 <> ''
+                       OR b.attribute4 IS NOT NULL
+                     THEN b.unit_price + b.attribute4
+                  ELSE b.unit_price
+               END AS price,
+               a.attribute1 AS type_ppn,
+               DECODE ((SELECT fn_po_tax_line (b.po_line_id)
+                          FROM DUAL),
+                       NULL, 0,
+                       (SELECT fn_po_tax_line (b.po_line_id)
+                          FROM DUAL)
+                      ) AS total_ppn, 
+                      (
+                       select note_to_vendor 
+                       from   po_lines_all
+                       where  po_header_id = b.po_header_id
+                      and rownum = 1
+                       and    note_to_vendor is not null or note_to_vendor <> ''
+                       
+                      ) as note_to_vendor,
+                      (
+                       select attribute6
+                       from   po_lines_all
+                       where  po_header_id = b.po_header_id
+                       and rownum = 1
+                       and   attribute6 is not null or attribute6 <> ''
+                      ) as refer_contract_no,
+                      a.currency_code AS curr_detail
+          FROM po_headers_all a, po_lines_all b
+         WHERE a.segment1 BETWEEN :nomor_po1 AND :nomor_po2
+           AND a.po_header_id = b.po_header_id
+           AND  b.quantity > 0
+           AND (b.cancel_flag = 'N' OR b.cancel_flag IS NULL)
+           AND a.org_id = :p_context
+               ) zz

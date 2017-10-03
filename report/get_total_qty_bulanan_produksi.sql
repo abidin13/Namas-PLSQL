@@ -18,11 +18,7 @@ SELECT   TO_CHAR (TO_DATE (:from_date, 'RRRR/MM/DD HH24:MI:SS'),
          || '-'
          || d.segment5 AS item_code,
          c.inventory_item_id, d.description,
-         DECODE (c.line_type,
-                 -1, 'Ingredient',
-                 1, 'Product',
-                 2,'By-Product'
-                ) TYPE,
+         DECODE (c.line_type,-1, 'Ingredient',1, 'Product', 2,'By-Product') TYPE,
          SUM (e.transaction_quantity) quantity, c.dtl_um,
          DECODE (d.segment1,
                  'FGP', ynp_rjt_pcs2 (c.inventory_item_id,
