@@ -1,118 +1,55 @@
-/* FORMATTED ON 2017/08/15 11:26 (FORMATTER PLUS V4.8.8) */
---IO = 194
--- ITEM_ID = 222152
-
-SELECT (SELECT GBH.PLAN_CMPLT_DATE
-          FROM GME_BATCH_HEADER GBH,
-               GME_MATERIAL_DETAILS GMD
-         WHERE GBH.BATCH_ID = MMT.TRANSACTION_SOURCE_ID
-           AND GMD.INVENTORY_ITEM_ID = MMT.INVENTORY_ITEM_ID
-           AND GBH.BATCH_ID = GMD.BATCH_ID
-           AND GMD.MATERIAL_DETAIL_ID = MMT.TRX_SOURCE_LINE_ID
-           AND TRUNC (GBH.PLAN_CMPLT_DATE)
-                  BETWEEN TO_DATE (:TGL1, 'RRRR/MM/DD HH24:MI:SS')
-                      AND TO_DATE (:TGL2, 'RRRR/MM/DD HH24:MI:SS')
-           AND rownum = 1)
-                                                           AS PRODUCTION_DATE,
-       (SELECT CASE
-                  WHEN TO_CHAR (GBH.PLAN_CMPLT_DATE, 'HH24:MI') =
-                                                        '07:00'
-                     THEN '1'
-                  WHEN TO_CHAR (GBH.PLAN_CMPLT_DATE, 'HH24:MI') =
-                                                        '15:00'
-                     THEN '2'
-                  WHEN TO_CHAR (GBH.PLAN_CMPLT_DATE, 'HH24:MI') =
-                                                       '23:00'
-                     THEN '3'
-                  ELSE 'N/A'
-               END AS SHIFT
-          FROM GME_BATCH_HEADER GBH, GME_MATERIAL_DETAILS GMD
-         WHERE GBH.BATCH_ID = MMT.TRANSACTION_SOURCE_ID
-           AND GMD.INVENTORY_ITEM_ID = MMT.INVENTORY_ITEM_ID
-           AND GBH.BATCH_ID = GMD.BATCH_ID
-           AND GMD.MATERIAL_DETAIL_ID = MMT.TRX_SOURCE_LINE_ID
-           
-           AND TRUNC (GBH.PLAN_CMPLT_DATE)
-                  BETWEEN TO_DATE (:TGL1, 'RRRR/MM/DD HH24:MI:SS')
-                      AND TO_DATE (:TGL2, 'RRRR/MM/DD HH24:MI:SS')
-           AND rownum = 1) AS SHIFT,
-       (SELECT    F.SEGMENT1
-               || '-'
-               || F.SEGMENT2
-               || '-'
-               || F.SEGMENT3
-               || '-'
-               || F.SEGMENT4
-               || '-'
-               || F.SEGMENT5
-          FROM MTL_SYSTEM_ITEMS F
-         WHERE F.INVENTORY_ITEM_ID = MMT.INVENTORY_ITEM_ID
-           AND F.ORGANIZATION_ID = MMT.ORGANIZATION_ID) AS ITEM,
-       (SELECT GBH.BATCH_NO
-          FROM GME_BATCH_HEADER GBH, GME_MATERIAL_DETAILS GMD
-         WHERE GBH.BATCH_ID = MMT.TRANSACTION_SOURCE_ID
-           AND GMD.INVENTORY_ITEM_ID = MMT.INVENTORY_ITEM_ID
-           AND GBH.BATCH_ID = GMD.BATCH_ID
-           AND GMD.MATERIAL_DETAIL_ID = MMT.TRX_SOURCE_LINE_ID
-           AND TRUNC (GBH.PLAN_CMPLT_DATE)
-                  BETWEEN TO_DATE (:TGL1, 'RRRR/MM/DD HH24:MI:SS')
-                      AND TO_DATE (:TGL2, 'RRRR/MM/DD HH24:MI:SS')
-           
-           AND rownum = 1)
-                                                                  AS BATCH_NO,
-       (SELECT F.DESCRIPTION
-          FROM MTL_SYSTEM_ITEMS F
-         WHERE F.INVENTORY_ITEM_ID = MMT.INVENTORY_ITEM_ID
-           AND F.ORGANIZATION_ID = MMT.ORGANIZATION_ID) AS DESCRIPTION,
-           carilotnumberdua
-           (
-            MMT.TRANSACTION_ID
-           ) AS LOT_NUMBER,
-       /*(SELECT MTLN.LOT_NUMBER
-          FROM MTL_TRANSACTION_LOT_NUMBERS MTLN
-         WHERE MTLN.TRANSACTION_ID = MMT.TRANSACTION_ID) AS LOT_NUMBER,*/
-       (SELECT GMD.ACTUAL_QTY
-          FROM GME_BATCH_HEADER GBH, GME_MATERIAL_DETAILS GMD
-         WHERE GBH.BATCH_ID = MMT.TRANSACTION_SOURCE_ID
-           AND GMD.INVENTORY_ITEM_ID = MMT.INVENTORY_ITEM_ID
-           AND GBH.BATCH_ID = GMD.BATCH_ID
-           AND GMD.MATERIAL_DETAIL_ID = MMT.TRX_SOURCE_LINE_ID
-           AND TRUNC (GBH.PLAN_CMPLT_DATE)
-                  BETWEEN TO_DATE (:TGL1, 'RRRR/MM/DD HH24:MI:SS')
-                      AND TO_DATE (:TGL2, 'RRRR/MM/DD HH24:MI:SS')
-           
-           AND rownum = 1)
-                                                                AS ACTUAL_QTY,
-       (SELECT GMD.DTL_UM
-          FROM GME_BATCH_HEADER GBH, GME_MATERIAL_DETAILS GMD
-         WHERE GBH.BATCH_ID = MMT.TRANSACTION_SOURCE_ID
-           AND GMD.INVENTORY_ITEM_ID = MMT.INVENTORY_ITEM_ID
-           AND GBH.BATCH_ID = GMD.BATCH_ID
-           AND GMD.MATERIAL_DETAIL_ID = MMT.TRX_SOURCE_LINE_ID
-           AND TRUNC (GBH.PLAN_CMPLT_DATE)
-                  BETWEEN TO_DATE (:TGL1, 'RRRR/MM/DD HH24:MI:SS')
-                      AND TO_DATE (:TGL2, 'RRRR/MM/DD HH24:MI:SS')
-           
-          AND rownum = 1) AS UOM,
-          (SELECT WND.INITIAL_PICKUP_DATE
-         FROM WSH_NEW_DELIVERIES WND
-        WHERE WND.DELIVERY_ID IN (
-                 SELECT WDA.DELIVERY_ID
-                   FROM WSH_DELIVERY_ASSIGNMENTS WDA
+/* FORMATTED ON 2017/12/14 08:34 (FORMATTER PLUS V4.8.8) */
+SELECT GBH.PLAN_CMPLT_DATE, MTLN.LOT_NUMBER, GBH.BATCH_NO,
+          MSI.SEGMENT1
+       || '-'
+       || MSI.SEGMENT2
+       || '-'
+       || MSI.SEGMENT3
+       || '-'
+       || MSI.SEGMENT4
+       || '-'
+       || MSI.SEGMENT5 ITEM_CODE,
+       MSI.DESCRIPTION, TAB.LOT_NUMBER DETAIL_LOT_NUMBER, TAB.ACTUAL_QTY,
+       TAB.TRANSACTION_UOM,
+       (SELECT WND.INITIAL_PICKUP_DATE
+          FROM WSH_NEW_DELIVERIES WND
+         WHERE WND.DELIVERY_ID IN (
+                  SELECT WDA.DELIVERY_ID
+                    FROM WSH_DELIVERY_ASSIGNMENTS WDA
                    WHERE WDA.DELIVERY_DETAIL_ID IN (
                             SELECT WDD.DELIVERY_DETAIL_ID
                               FROM WSH_DELIVERY_DETAILS WDD
-                             WHERE WDD.DELIVERY_DETAIL_ID =
-                                             MMT.PICKING_LINE_ID)))
-                                                                AS TGL_KIRIM,
+                             WHERE WDD.DELIVERY_DETAIL_ID IN (
+                                      SELECT MMT.PICKING_LINE_ID
+                                        FROM MTL_MATERIAL_TRANSACTIONS MMT
+                                       WHERE MMT.TRANSACTION_TYPE_ID = 33
+                                         AND MMT.INVENTORY_ITEM_ID = TAB.INVENTORY_ITEM_ID
+                                         AND MMT.ORGANIZATION_ID = TAB.ORGANIZATION_ID
+                                         AND MMT.TRANSACTION_ID IN (
+                                                SELECT TRANSACTION_ID
+                                                  FROM MTL_TRANSACTION_LOT_NUMBERS MTLN
+                                                 WHERE MTLN.LOT_NUMBER =
+                                                                TAB.LOT_NUMBER)))))
+                                                                 AS TGL_KIRIM,
        (SELECT WDD.SHIPPED_QUANTITY
           FROM WSH_DELIVERY_DETAILS WDD
-         WHERE WDD.DELIVERY_DETAIL_ID = MMT.PICKING_LINE_ID) AS QTY_KIRIM,
+         WHERE WDD.DELIVERY_DETAIL_ID IN (
+                  SELECT MMT.PICKING_LINE_ID
+                    FROM MTL_MATERIAL_TRANSACTIONS MMT
+                   WHERE MMT.TRANSACTION_TYPE_ID = 33
+                     AND MMT.INVENTORY_ITEM_ID = TAB.INVENTORY_ITEM_ID
+                     AND MMT.ORGANIZATION_ID = TAB.ORGANIZATION_ID
+                     AND MMT.TRANSACTION_ID IN (
+                                        SELECT TRANSACTION_ID
+                                          FROM MTL_TRANSACTION_LOT_NUMBERS MTLN
+                                         WHERE MTLN.LOT_NUMBER =
+                                                                TAB.LOT_NUMBER)))
+                                                                 AS QTY_KIRIM,
        (SELECT CASE
                   WHEN D.ACCOUNT_NAME IS NULL
                    OR D.ACCOUNT_NAME = ''
                      THEN D.ATTRIBUTE1
-                 ELSE D.ACCOUNT_NAME
+                  ELSE D.ACCOUNT_NAME
                END
           FROM HZ_CUST_ACCOUNTS D
          WHERE D.CUST_ACCOUNT_ID IN (
@@ -124,8 +61,19 @@ SELECT (SELECT GBH.PLAN_CMPLT_DATE
                              WHERE WDA.DELIVERY_DETAIL_ID IN (
                                       SELECT WDD.DELIVERY_DETAIL_ID
                                         FROM WSH_DELIVERY_DETAILS WDD
-                                       WHERE WDD.DELIVERY_DETAIL_ID =
-                                                           MMT.PICKING_LINE_ID))))
+                                       WHERE WDD.DELIVERY_DETAIL_ID IN (
+                                                SELECT MMT.PICKING_LINE_ID
+                                                  FROM MTL_MATERIAL_TRANSACTIONS MMT
+                                                 WHERE MMT.TRANSACTION_TYPE_ID =
+                                                                            33
+                                                   AND MMT.INVENTORY_ITEM_ID =
+                                                                      TAB.INVENTORY_ITEM_ID
+                                                   AND MMT.ORGANIZATION_ID = TAB.ORGANIZATION_ID
+                                                   AND MMT.TRANSACTION_ID IN (
+                                                          SELECT TRANSACTION_ID
+                                                            FROM MTL_TRANSACTION_LOT_NUMBERS MTLN
+                                                           WHERE MTLN.LOT_NUMBER =
+                                                                    TAB.LOT_NUMBER))))))
                                                              AS NAMA_CUSTOMER,
        (SELECT WND.NAME
           FROM WSH_NEW_DELIVERIES WND
@@ -135,19 +83,51 @@ SELECT (SELECT GBH.PLAN_CMPLT_DATE
                    WHERE WDA.DELIVERY_DETAIL_ID IN (
                             SELECT WDD.DELIVERY_DETAIL_ID
                               FROM WSH_DELIVERY_DETAILS WDD
-                             WHERE WDD.DELIVERY_DETAIL_ID =
-                                             MMT.PICKING_LINE_ID)))
+                             WHERE WDD.DELIVERY_DETAIL_ID IN (
+                                      SELECT MMT.PICKING_LINE_ID
+                                        FROM MTL_MATERIAL_TRANSACTIONS MMT
+                                       WHERE MMT.TRANSACTION_TYPE_ID = 33
+                                         AND MMT.INVENTORY_ITEM_ID = TAB.INVENTORY_ITEM_ID
+                                         AND MMT.ORGANIZATION_ID = TAB.ORGANIZATION_ID
+                                         AND MMT.TRANSACTION_ID IN (
+                                                SELECT TRANSACTION_ID
+                                                  FROM MTL_TRANSACTION_LOT_NUMBERS MTLN
+                                                 WHERE MTLN.LOT_NUMBER =
+                                                                TAB.LOT_NUMBER)))))
                                                                  AS DO_NUMBER
-  FROM MTL_MATERIAL_TRANSACTIONS MMT
- WHERE MMT.ORGANIZATION_ID = :IO
-   AND MMT.INVENTORY_ITEM_ID = :ITEM_ID
-   AND MMT.TRANSACTION_TYPE_ID IN ('33', '44')
---   AND GBH.BATCH_ID = MMT.TRANSACTION_SOURCE_ID
---   AND GMD.INVENTORY_ITEM_ID = MMT.INVENTORY_ITEM_ID
-   AND TRUNC (MMT.TRANSACTION_DATE) BETWEEN TO_DATE (:TGL1,
-                                                     'RRRR/MM/DD HH24:MI:SS'
-                                                    )
-                                        AND TO_DATE (:TGL2,
-                                                     'RRRR/MM/DD HH24:MI:SS'
-                                                    )
-                                                   
+  FROM GME_BATCH_HEADER GBH,
+       GME_MATERIAL_DETAILS GBD,
+       MTL_SYSTEM_ITEMS MSI,
+       MTL_MATERIAL_TRANSACTIONS MTT,
+       MTL_TRANSACTION_LOT_NUMBERS MTLN,
+       (SELECT   A.BATCH_ID, B.INVENTORY_ITEM_ID, B.ORGANIZATION_ID,
+                 A.ACTUAL_QTY, D.LOT_NUMBER, C.TRANSACTION_UOM
+            FROM GME_MATERIAL_DETAILS A,
+                 MTL_SYSTEM_ITEMS B,
+                 MTL_MATERIAL_TRANSACTIONS C,
+                 MTL_TRANSACTION_LOT_NUMBERS D
+           WHERE 1 = 1
+             AND A.MATERIAL_DETAIL_ID = C.TRX_SOURCE_LINE_ID
+             AND C.TRANSACTION_ID = D.TRANSACTION_ID
+             AND A.INVENTORY_ITEM_ID = B.INVENTORY_ITEM_ID
+             AND B.ORGANIZATION_ID = 89
+             AND A.ORGANIZATION_ID = :IO
+             --AND A.INVENTORY_ITEM_ID = :ITEM_ID
+        --AND A.BATCH_ID = 578323
+        ORDER BY A.LINE_TYPE, A.LINE_NO, A.BATCH_ID) TAB
+ WHERE 1 = 1
+   AND MTT.TRANSACTION_ID = MTLN.TRANSACTION_ID
+   AND GBD.MATERIAL_DETAIL_ID = MTT.TRX_SOURCE_LINE_ID
+   AND GBH.BATCH_ID = GBD.BATCH_ID
+   AND TAB.INVENTORY_ITEM_ID = MSI.INVENTORY_ITEM_ID
+   AND TAB.ORGANIZATION_ID = MSI.ORGANIZATION_ID
+   AND MSI.ORGANIZATION_ID = 89
+   AND GBD.ORGANIZATION_ID = :IO
+   AND GBD.BATCH_ID = TAB.BATCH_ID
+   AND GBD.LINE_TYPE = 1
+   AND GBD.LINE_NO = 1
+   AND GBD.INVENTORY_ITEM_ID = :ITEM_ID
+   AND TRUNC (GBH.ACTUAL_START_DATE)
+                  BETWEEN TO_DATE (:TGL1, 'RRRR/MM/DD HH24:MI:SS') - 1
+                      AND TO_DATE (:TGL2, 'RRRR/MM/DD HH24:MI:SS')
+    --AND GBD.BATCH_ID = 578323
